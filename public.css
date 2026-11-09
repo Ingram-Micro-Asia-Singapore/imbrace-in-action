@@ -134,3 +134,24 @@
 @media (max-width: 700px) {
   .partner-rewrite-v3 .p-hero .letterform { display: none !important; }
 }
+
+/* ---------- screens and videos take centre stage (owner, 9 Nov 2026) ----------
+   Each annotated screen and every video uses the full width of the page; the screen's notes and the video's chapters
+   sit underneath instead of in a side column (the screen shared its row with a 320px panel, and a video without
+   chapters still kept an empty third of the row). */
+.partner-rewrite-v3 .p-screen { grid-template-columns: minmax(0, 1fr); gap: 0; }
+/* a figure's default 40px side margins were taking 80px off every screen */
+.partner-rewrite-v3 .p-screen-frame { margin: 0; }
+.partner-rewrite-v3 #p-screen-image { cursor: zoom-in; }
+.partner-rewrite-v3 #screens > .p-detail-body { padding-left: 0; padding-right: 0; }
+.partner-rewrite-v3 .p-screen-copy { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 32px; align-items: start; padding: 16px 0 0; background: transparent; }
+.partner-rewrite-v3 .p-screen-copy > * { grid-column: 1; }
+.partner-rewrite-v3 .p-screen-copy > .p-screen-controls { grid-column: 2; grid-row: 1 / span 8; margin-top: 0; flex-wrap: nowrap; }
+.partner-rewrite-v3 .p-screen-copy h3 { margin: 4px 0 8px; }
+.partner-rewrite-v3 .video-experience .video-experience-layout { grid-template-columns: minmax(0, 1fr); }
+.partner-rewrite-v3 .p-media { max-width: none; }
+.partner-rewrite-v3 .video-experience .video-chapters { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+@media (max-width: 700px) {
+  .partner-rewrite-v3 .p-screen-copy { grid-template-columns: minmax(0, 1fr); }
+  .partner-rewrite-v3 .p-screen-copy > .p-screen-controls { grid-column: 1; grid-row: auto; margin-top: 16px; flex-wrap: wrap; }
+}

@@ -574,6 +574,13 @@ button, summary { font: inherit; }
   }, { rootMargin: '-30% 0px -65% 0px' });
   Object.keys(byId).forEach(function (id) { var s = document.getElementById(id); if (s) seen.observe(s); });
 }());
+(function () {
+  // a click on the annotated screen opens it full size in a new tab
+  var img = document.getElementById('p-screen-image');
+  if (!img) return;
+  img.title = 'Open this screen full size';
+  img.addEventListener('click', function () { if (img.currentSrc || img.src) window.open(img.currentSrc || img.src, '_blank', 'noopener'); });
+}());
 </script>
 <script>
 (function () {
