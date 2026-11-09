@@ -1,0 +1,33 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:08.160
+Contract Reviews holds the synthetic agreement and its later amendment.
+
+2
+00:00:08.480 --> 00:00:10.500
+Typed by Claude (automated test) as contract manager: submits through MCP.
+
+3
+00:00:10.500 --> 00:00:23.280
+The report quotes the replacing clause and its parsed cap value.
+
+4
+00:00:23.280 --> 00:00:36.780
+AI locates clause identifiers; code checks keywords, amendments, values and playbook positions.
+
+5
+00:00:36.780 --> 00:00:41.780
+Typed by Claude (automated test) as lawyer: opens the decision form.
+
+6
+00:00:42.220 --> 00:00:54.720
+Typed by Claude (automated test) as lawyer: records rejection and fallback request.
+
+7
+00:00:54.720 --> 00:01:01.460
+The matching decision resumes the waiting contract-review workflow.
+
+8
+00:01:01.460 --> 00:01:09.420
+The review returns the fallback request from the automated lawyer-role decision.

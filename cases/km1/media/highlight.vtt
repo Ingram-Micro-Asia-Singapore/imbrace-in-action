@@ -1,0 +1,33 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:10.500
+The employee asks about an old leave rule.
+
+2
+00:00:10.500 --> 00:00:16.240
+The assistant gives the current rule and cites its policy, version and section.
+
+3
+00:00:16.240 --> 00:00:22.700
+The assistant logs the general question in HR's unmonitored queue.
+
+4
+00:00:22.700 --> 00:00:26.420
+An automated test writes HR's answer and marks it approved.
+
+5
+00:00:36.300 --> 00:00:44.640
+An automation copies the approved answer to the board the assistant reads.
+
+6
+00:00:44.640 --> 00:00:53.340
+The retained reply quotes the approved answer and HRQ-050 reference.
+
+7
+00:00:53.340 --> 00:01:07.280
+An automated test withdrew HRQ-050. Its text remains visible for history.
+
+8
+00:01:07.280 --> 00:01:12.040
+The withdrawn answer is gone; HRQ-051 logs the question without alerting HR.

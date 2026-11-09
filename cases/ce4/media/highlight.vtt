@@ -1,0 +1,37 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:10.500
+Supply the email for this fictional customer.
+
+2
+00:00:10.500 --> 00:00:11.000
+Supply the email for this fictional customer.
+
+3
+00:00:11.000 --> 00:00:21.500
+The answer combines customer facts with a source beside each one.
+
+4
+00:00:22.000 --> 00:00:25.900
+Follow the demo consolidation request into its workflow run.
+
+5
+00:00:25.950 --> 00:00:34.300
+Fixed rules gather, clean, match and link the source records.
+
+6
+00:00:35.100 --> 00:00:42.550
+The phone rule also requires the same full name.
+
+7
+00:00:43.050 --> 00:00:52.200
+The sourced customer views keep linked order totals alongside their facts.
+
+8
+00:00:52.700 --> 00:01:01.200
+The demo decision applies while the other possible matches stay queued.
+
+9
+00:01:01.250 --> 00:01:15.340
+The visitor's unverified identity claim stays separate from the sourced customer view.

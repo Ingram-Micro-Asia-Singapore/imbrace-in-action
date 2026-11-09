@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What to plan for in a pilot | Ingram Micro · iMBrace demos</title>
+<meta name="description" content="See where the iMBrace demos are strongest, which rollout controls still need proof and what to test first in a pilot.">
+<link rel="icon" href="../brand/ingram-micro-logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../brand/brand.css">
+<link rel="stylesheet" href="../site.css">
+<style>
+/* Chapter-only refinements; the shared site and case pages keep their styles. */
+@media screen {
+  .chapter-v3 .table td[data-label]::before { color: var(--fd-secondary); }
+}
+@media print {
+  .chapter-v3 { font-size: 14px; }
+  .presentation-v2.front-doors-v2.chapter-v3 .fd-hero { padding: 24px 0; }
+  .presentation-v2.front-doors-v2.chapter-v3 .fd-section { margin-top: 24px; padding: 16px 0; }
+  .presentation-v2.front-doors-v2.chapter-v3 .sec { padding-top: 24px; }
+  .chapter-v3 h2, .chapter-v3 h3, .chapter-v3 h4, .chapter-v3 .eyebrow,
+  .chapter-v3 summary, .chapter-v3 .screen > .meta { break-after: avoid; }
+  .chapter-v3 h1, .chapter-v3 h2, .chapter-v3 h3, .chapter-v3 h4 { break-inside: avoid; }
+  .chapter-v3 .route-card, .chapter-v3 .route-rail li, .chapter-v3 .findings li,
+  .chapter-v3 .untested > div, .chapter-v3 tr, .chapter-v3 figure,
+  .chapter-v3 .prose li, .chapter-v3 .panel li, .chapter-v3 .limit-list li,
+  .chapter-v3 .counts { break-inside: avoid; }
+  .chapter-v3 .detail-body h3 { margin: 16px 0 8px; }
+  .chapter-v3 .foot { margin-top: 8px; padding-top: 8px; padding-bottom: 0; border: 0; font-size: 12px; line-height: 1.4; break-inside: avoid; }
+  .chapter-v3 .chapter-return { display: none; }
+}
+</style>
+</head>
+<body class="presentation-v2 front-doors-v2 findings-v2 partner-rewrite-v3 chapter-v3">
+<a class="skip" href="#main">Skip to content</a>
+<div class="shell">
+  <header class="head">
+    <a class="logo-plate" href="../index.html" aria-label="Ingram Micro iMBrace demo study home">
+      <img class="wordmark" src="../brand/ingram-micro-logo.svg" alt="Ingram Micro" width="192" height="35">
+    </a>
+    <p class="eyebrow">iMBrace for partners</p>
+  </header>
+  <nav class="side" aria-label="Site">
+    <div class="side-in">
+      <div class="group">
+        <p class="group-name">Partner demos</p>
+        <ul>
+          <li><a href="../index.html">Overview</a></li>
+          <li><a href="../index.html#cases">The cases</a></li>
+          <li class="sub"><a href="../index.html#km">Knowledge Management</a></li>
+          <li class="sub"><a href="../index.html#ce">Customer Engagement</a></li>
+          <li class="sub"><a href="../index.html#ca">Conversational Analytics</a></li>
+          <li class="sub"><a href="../index.html#pa">Process Automation</a></li>
+          <li class="sub"><a href="../index.html#cg">Content Generation</a></li>
+        </ul>
+      </div>
+      <div class="group">
+        <p class="group-name">Chapters</p>
+        <ul>
+          <li><a href="front-doors.html">How iMBrace reaches users</a></li>
+          <li><a href="see-everything.html">See everything in one place</a></li>
+          <li><a href="findings.html" aria-current="page">Findings</a></li>
+          <li class="sub"><a href="findings.html#story">The business story</a></li>
+          <li class="sub"><a href="findings.html#benefits">Benefits</a></li>
+          <li class="sub"><a href="findings.html#limits">How sure we are</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="main">
+    <section class="fd-hero" aria-labelledby="claim">
+      <img class="letterform" src="../brand/ingram-letterform.svg" alt="" aria-hidden="true">
+      <div class="fd-wrap">
+        <p class="eyebrow">Chapter · Findings</p>
+        <h1 id="claim" tabindex="-1">What to plan for in a pilot.</h1>
+        <p class="fd-lead">The demos show useful workflows for documents, answers and decisions. A pilot tests them with your customer’s documents, people, connections and operating controls.</p>
+        <p class="fd-audience"><b>For:</b> partners shaping a first pilot and customers deciding what evidence they still need.</p>
+        <p class="fd-audience">Start with one workflow and agree what success will look like. Use the findings below to shape the pilot and its safeguards.</p>
+      </div>
+    </section>
+
+    <section class="sec" id="story" aria-labelledby="story-h">
+      <div class="wrap">
+        <p class="eyebrow">The pattern that held up</p>
+        <h2 id="story-h">Keep language, rules and decisions separate.</h2>
+        <div class="prose">
+          <p>Ingram Micro and its partners want AI that does real work in five areas: knowledge, customer engagement, analytics, document processing and content. iMBrace's pitch is one platform where messages, documents, data, decisions and actions meet. We found that each link in that chain works on its own (a web chat reaches an agent, a document becomes a record, a record feeds an answer, a flow waits for a decision), while the operating view is spread across several screens. Agree how the pilot team will join those records when it investigates a task.</p>
+          <p>Most of the finished cases share one shape:</p>
+          <ul>
+            <li><b>The AI handles the language.</b> It finds the clause, drafts the reply, writes the copy, words the alert.</li>
+            <li><b>Fixed steps do the sums and enforce the rules.</b> FlowOps code steps add up the totals, check every figure the AI writes, match an order number with its email, and compare the output with rules kept as records on a board. These are labelled "Built on iMBrace with FlowOps".</li>
+            <li><b>The workflow holds for a decision.</b> An approval step was exercised by the automated demo operator. The custom workflow records the exact version approved; a pilot must add and test distinct approver identities.</li>
+            <li><b>The team can inspect the work</b> in FlowOps Runs, DataIQ records boards and DocIQ document logs (<a href="see-everything.html">See everything in one place</a>).</li>
+          </ul>
+        </div>
+        <h3>What that looked like</h3>
+        <p>These examples use fictional data and labelled demo finance or ERP boards. The automated demo operator plays customer and approver roles.</p>
+        <ul class="findings is-good">
+          <li><b><a href="../cases/pa1/index.html">PA-1 Invoice and claims capture</a></b>Four invoices and a claim form go in. The clean invoice and the clean claim reach the demo finance board automatically; three invoices wait for a person, each with its reason in plain words; the same invoice sent twice is stopped.</li>
+          <li><b><a href="../cases/km1/index.html">KM-1 HR policy Q&amp;A</a></b>Asked whether 10 days of leave can still be carried over until June, the assistant gives the rule in force (5 days, used by 31 March) and cites the document, version and section.</li>
+          <li><b><a href="../cases/ca3/index.html">CA-3 Sales and margin Q&amp;A</a></b>East's Q3 gross margin is $131,600, 32.7% of revenue, with its working. When a cell on the board is mistyped, the next answer names the bad record instead of adding it in.</li>
+          <li><b><a href="../cases/cg1/index.html">CG-1 Marketing content</a></b>A sales manager's off-brand draft is checked against brand rules marketing keeps on a board; every problem is named with its rule, the copy is rewritten on brand, and the workflow holds it for a marketing approval played by the automated demo operator.</li>
+          <li><b><a href="../cases/ce5/index.html">CE-5 One agent, every front door</a></b>The same cited answer comes back through iMBrace's console, its hosted web chat and three doors on a demo partner portal.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="meaning" aria-labelledby="meaning-h">
+      <div class="wrap">
+        <p class="eyebrow">Where to start</p>
+        <h2 id="meaning-h">Choose a workflow with a clear source and a clear decision.</h2>
+        <div class="two">
+          <div class="panel is-key">
+            <h3>Useful starting points</h3>
+            <ul>
+              <li>Internal assistants that answer from documents and boards, cite their source and say when they don't know (KM-1, KM-3, CA-3).</li>
+              <li>Document intake where clean documents go straight through and people handle the exceptions (PA-1).</li>
+              <li>Workflows that wait for an approver or a customer's reply and pick up where they stopped (CG-1, CG-2 and PA-3).</li>
+              <li>One assistant offered to staff, customers and partners through different front doors (CE-5).</li>
+            </ul>
+            <p class="small">Each was shown on synthetic data. First agree access and data controls, then test representative customer documents: KM-3's runbooks, for example, had to be re-laid out one step per line before iMBrace's ingestion read them reliably.</p>
+          </div>
+          <div class="panel">
+            <h3>What a pilot needs to settle first</h3>
+            <ul>
+              <li><b>Native safeguards.</b> No guardrail provider was provisioned, including after the account became Admin. Custom FlowOps phrase and version checks are separate from native guardrails. Ask iMBrace which supported components the pilot will use and test the actual policy behaviour; the guardrail case remains dropped.</li>
+              <li><b>Separate roles.</b> One login played every role, and the account belonged to no team. Use distinct pilot accounts to test correction, approval, team inbox access and answers by audience.</li>
+              <li><b>Data location.</b> The demonstrated model route used AWS US West (Oregon). The platform and log locations were not verified. Obtain a data-flow and hosting map for the customer's data-protection review before using confidential data.</li>
+              <li><b>Cost and tracing.</b> Token Usage omitted most case assistants and DocIQ reads; partial AI traces do not follow every step. Zero usage is not zero cost. Agree metering, billing reconciliation and a way to correlate records across screens.</li>
+              <li><b>Real connections.</b> ERP and CRM write-back were not tested. A later demo mailbox connection was read-only, and an approved reply path was not demonstrated. The observed FlowOps library included NetSuite, Salesforce, ServiceNow and Dynamics pieces, but none for SAP. Verify the customer's actual connector and sandbox delivery path; a catalogue entry alone is not an integration.</li>
+              <li><b>Representative documents and volume.</b> Most cases used small scripted cohorts; PA-1 also retained a 200-invoice run. Answers took about 5 seconds to just over a minute. These observations do not establish production accuracy, concurrency or scale. Agree a document set, baseline, accuracy target and load test.</li>
+              <li><b>Security.</b> Agree a security review with iMBrace before the pilot handles real customer or employee data.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fd-section fd-next" aria-labelledby="next-h">
+      <div class="fd-wrap next-grid">
+        <div><p class="eyebrow">Next action</p><h2 id="next-h">Bring one workflow and its operating questions.</h2><p>Choose a case, then discuss volume, exceptions, connections and the buyer’s decision with Ingram Micro. Agree a baseline and the evidence the customer will need before expanding the pilot.</p></div>
+        <a class="fd-button" href="../index.html#cases">Compare all cases</a>
+      </div>
+    </section>
+
+    <section class="fd-section fd-details" id="benefits" aria-labelledby="benefits-h">
+      <div class="fd-wrap">
+        <p class="eyebrow">Supporting detail</p>
+        <h2 id="benefits-h">Check the evidence behind a capability.</h2>
+        <details id="benefits-detail">
+          <summary>Open the 65-benefit check</summary>
+          <div class="detail-body">
+        <ul class="counts" aria-label="Live check of 65 marketed benefits">
+          <li class="c-works"><b>19</b> work</li>
+          <li class="c-partly"><b>11</b> work partly</li>
+          <li class="c-not"><b>4</b> don't work</li>
+          <li><b>10</b> unavailable in the tested configuration</li>
+          <li><b>7</b> present, untested</li>
+          <li><b>7</b> not in our UI</li>
+          <li><b>7</b> not demonstrable</li>
+        </ul>
+        <p class="table-note">Each benefit comes from iMBrace's own sites and was checked live on cloud.imbrace.co on 4 November 2026, then re-tested on DeepSeek V3.2. The numbers are the rows of the study's benefits inventory. Notes in "What we saw" add what the cases found later. A benefit appears in a demo only if iMBrace markets it and it works on our account; none is imitated with our own code.</p>
+
+        <h3 id="works">Benefits that work</h3>
+        <table class="table">
+          <thead><tr><th scope="col">#</th><th scope="col">Benefit</th><th scope="col">What we saw</th><th scope="col">Where</th></tr></thead>
+          <tbody>
+            <tr><td data-label="#" class="num">14</td><td data-label="Benefit">AI tools get only the access they're given</td><td data-label="What we saw">iMBrace's MCP server narrows the tools an AI client sees by a setting on the connection: from 231 down to 5 in our test</td><td data-label="Where">Census</td></tr>
+            <tr><td data-label="#" class="num">19</td><td data-label="Benefit">AI tracing</td><td data-label="What we saw">Latency by agent and by session, live. It says "No tool calls recorded" when tools ran, and recorded nothing for KM-1's and CA-3's assistants</td><td data-label="Where"><a href="see-everything.html">See everything</a></td></tr>
+            <tr><td data-label="#" class="num">21</td><td data-label="Benefit">Grounded answers that admit gaps</td><td data-label="What we saw">Answers cite the document and section, and say plainly when the sources don't cover a question</td><td data-label="Where"><a href="../cases/km1/index.html">KM-1</a>, <a href="../cases/km3/index.html">KM-3</a>, <a href="../cases/ce1/index.html">CE-1</a>, <a href="../cases/cg2/index.html">CG-2</a></td></tr>
+            <tr><td data-label="#" class="num">23</td><td data-label="Benefit">Document lineage</td><td data-label="What we saw">A processing-log row per document, with the model chosen and the board it went to; the record links back to its source file</td><td data-label="Where"><a href="../cases/pa1/index.html">PA-1</a></td></tr>
+            <tr><td data-label="#" class="num">27</td><td data-label="Benefit">Approval gate (SmartPause)</td><td data-label="What we saw">The run pauses, holds and picks up in the same run. The piece is labelled "Legacy" and its links resume a run with no login, so who decided, the version and failing closed are built in FlowOps</td><td data-label="Where"><a href="../cases/cg1/index.html">CG-1</a>, <a href="../cases/cg2/index.html">CG-2</a></td></tr>
+            <tr><td data-label="#" class="num">28</td><td data-label="Benefit">Wait for a reply and resume with context</td><td data-label="What we saw">A run asks the customer, waits, and resumes on the reply</td><td data-label="Where"><a href="../cases/pa3/index.html">PA-3</a></td></tr>
+            <tr><td data-label="#" class="num">31</td><td data-label="Benefit">People correct extracted data</td><td data-label="What we saw">A person's correction shows in the record's history beside the AI's read; the history names the person by user id</td><td data-label="Where"><a href="../cases/pa1/index.html">PA-1</a></td></tr>
+            <tr><td data-label="#" class="num">32</td><td data-label="Benefit">Agents call only the tools they're given</td><td data-label="What we saw">Asked to close a ticket, the assistant says it can't: it has no skill for that</td><td data-label="Where"><a href="../cases/km3/index.html">KM-3</a>, <a href="../cases/ce1/index.html">CE-1</a></td></tr>
+            <tr><td data-label="#" class="num">33</td><td data-label="Benefit">Deterministic execution</td><td data-label="What we saw">FlowOps code steps compute every figure; the AI quotes them and does no arithmetic</td><td data-label="Where"><a href="../cases/ca3/index.html">CA-3</a>, <a href="../cases/km2/index.html">KM-2</a> and <a href="../cases/ca1/index.html">CA-1</a></td></tr>
+            <tr><td data-label="#" class="num">38</td><td data-label="Benefit">One shared record layer</td><td data-label="What we saw">Document to DocIQ to a DataIQ board to an InsightsIQ answer; a web-chat visitor to a Contacts record</td><td data-label="Where">Census; <a href="../cases/ce1/index.html">CE-1</a></td></tr>
+            <tr><td data-label="#" class="num">39</td><td data-label="Benefit">Reuse knowledge without re-uploading</td><td data-label="What we saw">Agents read existing boards and Knowledge folders. Attaching them is admin-only in the UI</td><td data-label="Where">Census; <a href="../cases/km1/index.html">KM-1</a> (partly)</td></tr>
+            <tr><td data-label="#" class="num">41</td><td data-label="Benefit">Answers grounded in live systems of record</td><td data-label="What we saw">Change a record on the board and the next answer follows it</td><td data-label="Where"><a href="../cases/ca3/index.html">CA-3</a>, <a href="../cases/km3/index.html">KM-3</a>, <a href="../cases/ce1/index.html">CE-1</a></td></tr>
+            <tr><td data-label="#" class="num">45</td><td data-label="Benefit">Token usage and cost</td><td data-label="What we saw">Fills in about an hour later for the census agents. Read 0 for most case assistants, and DocIQ reads are never attributed</td><td data-label="Where"><a href="see-everything.html">See everything</a></td></tr>
+            <tr><td data-label="#" class="num">52</td><td data-label="Benefit">Charts from a chat question</td><td data-label="What we saw">A chart beside the exact totals, in InsightsIQ's chart panel</td><td data-label="Where"><a href="../cases/ca3/index.html">CA-3</a></td></tr>
+            <tr><td data-label="#" class="num">53</td><td data-label="Benefit">Model choice per agent, bring your own provider</td><td data-label="What we saw">Six provider types per agent, including self-hosted ones. Claude and OpenAI models refused calls from this account's region, so every case runs on DeepSeek V3.2</td><td data-label="Where">Census</td></tr>
+            <tr><td data-label="#" class="num">58</td><td data-label="Benefit">Large connector library</td><td data-label="What we saw">132 FlowOps pieces, including Salesforce, NetSuite, ServiceNow and Dynamics; none for SAP. iMBrace claims 400+</td><td data-label="Where">Census</td></tr>
+            <tr><td data-label="#" class="num">60</td><td data-label="Benefit">MCP</td><td data-label="What we saw">The study built and checked cases through iMBrace's MCP server. Agent creation still needed a labelled API exception because the MCP has no agent tools</td><td data-label="Where">Every case</td></tr>
+            <tr><td data-label="#" class="num">61</td><td data-label="Benefit">Multi-agent orchestration</td><td data-label="What we saw">An orchestrator delegated to HR, IT and sales specialists, then combined the supported parts of their answers</td><td data-label="Where"><a href="../cases/km4/index.html">KM-4</a></td></tr>
+            <tr><td data-label="#" class="num">63</td><td data-label="Benefit">Draft versus published</td><td data-label="What we saw">A change runs only after it is published; until then the published version keeps running</td><td data-label="Where">Census</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="partly">Benefits that work partly</h3>
+        <table class="table">
+          <thead><tr><th scope="col">#</th><th scope="col">Benefit</th><th scope="col">What works, and what doesn't</th></tr></thead>
+          <tbody>
+            <tr><td data-label="#" class="num">6</td><td data-label="Benefit">Budget caps</td><td data-label="What works">A loop cap (Max Steps) stops an agent; there is no cost cap</td></tr>
+            <tr><td data-label="#" class="num">17</td><td data-label="Benefit">Audit log</td><td data-label="What works">The screen opened after the account became Admin and showed the actor, time and change. The audit API provides field values before and after; revert remained refused. The role change happened outside the study</td></tr>
+            <tr><td data-label="#" class="num">20</td><td data-label="Benefit">Visible reasoning</td><td data-label="What works">InsightsIQ shows each tool step (<a href="../cases/ca3/index.html">CA-3</a>); "Show thinking" needs a reasoning model, and none answers on this account</td></tr>
+            <tr><td data-label="#" class="num">22</td><td data-label="Benefit">Provenance with an as-of date</td><td data-label="What works">Citations work (<a href="../cases/km1/index.html">KM-1</a>); no as-of date is built in</td></tr>
+            <tr><td data-label="#" class="num">24</td><td data-label="Benefit">Version history and rollback</td><td data-label="What works">DocIQ model versions show with times and authors; rollback wasn't tried</td></tr>
+            <tr><td data-label="#" class="num">35</td><td data-label="Benefit">One customer timeline</td><td data-label="What works">Web-chat visitors are linked to a Contacts record (<a href="../cases/ce1/index.html">CE-1</a>); the timeline view wasn't reached</td></tr>
+            <tr><td data-label="#" class="num">37</td><td data-label="Benefit">Relationship graph</td><td data-label="What works">Relations and graph queries work; only empty boards can be attached, and one MCP linking tool has no effect</td></tr>
+            <tr><td data-label="#" class="num">40</td><td data-label="Benefit">Connected sources</td><td data-label="What works">Our own Knowledge folder takes uploads; external drives need a connection, which was out of bounds</td></tr>
+            <tr><td data-label="#" class="num">47</td><td data-label="Benefit">Execution telemetry ("Observe")</td><td data-label="What works">AI Tracing latency and Token Usage exist; there is no Observe screen</td></tr>
+            <tr><td data-label="#" class="num">54</td><td data-label="Benefit">Data sovereignty</td><td data-label="What works">Self-hosted model providers can be chosen per agent; where iMBrace itself runs can't be shown</td></tr>
+            <tr><td data-label="#" class="num">62</td><td data-label="Benefit">Portable builds</td><td data-label="What works">The agent export dialog opens, but no package arrived in 3 tries</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="dont">Benefits that don't work on our account</h3>
+        <table class="table">
+          <thead><tr><th scope="col">#</th><th scope="col">Benefit</th><th scope="col">What happened</th></tr></thead>
+          <tbody>
+            <tr><td data-label="#" class="num">3</td><td data-label="Benefit">Banned words per agent</td><td data-label="What happened">The agent still used a banned word in 3 of 3 answers. Cases that need phrase rules check them in FlowOps, labelled, with iMBrace's own field also set (<a href="../cases/cg1/index.html">CG-1</a>, <a href="../cases/ce2/index.html">CE-2</a>)</td></tr>
+            <tr><td data-label="#" class="num">30</td><td data-label="Benefit">Draft-and-hold agent mode</td><td data-label="What happened">An agent in Advanced mode still answered the customer directly, with no hold (<a href="../cases/ce2/index.html">CE-2</a> says so)</td></tr>
+            <tr><td data-label="#" class="num">50</td><td data-label="Benefit">Anomalies flagged and routed</td><td data-label="What happened">No native feature; <a href="../cases/ca1/index.html">CA-1</a> builds and labels the rule in FlowOps</td></tr>
+            <tr><td data-label="#" class="num">64</td><td data-label="Benefit">Multi-organisation and business units</td><td data-label="What happened">One business unit, and every department "Uncategorized"; an Enterprise feature</td></tr>
+          </tbody>
+        </table>
+
+        <h3 id="untested">Benefits we couldn't test or show</h3>
+        <div class="untested">
+          <div>
+            <h4>Unavailable in the tested configuration (10)</h4>
+            <p>Guardrails, choice of safety model, prompt-injection defence and PII masking all need a provider that was not provisioned on this tenant; identity-provider group mapping; live human takeover and one inbox across channels (team-scoped, and the account is in no team); classifying and routing conversations; CRM or ERP write-back; and templates.</p>
+          </div>
+          <div>
+            <h4>Present, untested (7)</h4>
+            <p>Comment moderation; team-scoped knowledge; role-based permissions; field-level access; credentials kept out of workflows; offline email fallback; SLA chips. Most need a second user or a team; offline fallback remains unproven despite the later read-only demo Gmail connection.</p>
+          </div>
+          <div>
+            <h4>Not in our UI (7)</h4>
+            <p>An immutable ledger; a business record of events; overrides recorded with a reason; a lifecycle workspace; case SLA management; infrastructure health (on-premises only, per the vendor); SOP-drift optimisation.</p>
+          </div>
+          <div>
+            <h4>Not demonstrable (7)</h4>
+            <p>Every regulated message policy-checked; security-trimmed retrieval; encryption and tenant isolation; growth analytics; no training on customer data (and the vendor's own wording conflicts); security attestations; regulatory alignment. These are claims or legal statements with nothing to show on screen.</p>
+          </div>
+        </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    
+
+    <section class="sec" id="limits" aria-labelledby="limits-h">
+      <div class="wrap">
+        <p class="eyebrow">How sure we are</p>
+        <h2 id="limits-h">What this evidence covers</h2>
+        <div class="prose">
+          <ul>
+            <li><b>One demo account,</b> initially Builder and later changed to Admin by another account outside the run. It remained in no team, so role separation and team behaviour are not demonstrated.</li>
+            <li><b>Synthetic data and scripted scenarios:</b> most cases run small cohorts; PA-1 adds a retained 200-invoice depth run. That shows designed behaviour, not an accuracy or production-scale rate.</li>
+            <li><b>One model,</b> DeepSeek V3.2 on iMBrace's built-in provider. Claude and OpenAI models refused calls from this account's region.</li>
+            <li><b>A point in time:</b> iMBrace version 2026.10.30, observed from 4 to 6 November 2026.</li>
+            <li><b>One login played every role.</b> The demos label automated customer and approver actions; they do not prove separation of duties.</li>
+            <li><b>Buying demand is a separate question.</b> The 6 November demand record supports categories and ranks customer care, invoice capture and sales analytics highly. Exact buying demand for the order desk, competitive response, five-front-door and multi-agent demonstrations is unverified. Ask the buyer about its current volume, cost and decision criteria; vendor outcome percentages do not forecast an iMBrace result.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p><b>Ingram Micro</b> · Built on iMBrace</p>
+    <p>Recorded on cloud.imbrace.co (version 2026.10.30), 4–6 November 2026. All companies, people, documents and figures in the demos are synthetic.</p>
+  </footer>
+</div>
+<script>
+(function () {
+  var appendices = Array.from(document.querySelectorAll('details'));
+  var printState = [];
+  function openLinkedDetail() {
+    var id;
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch (_) { return; }
+    var target = document.getElementById(id);
+    if (!target) return;
+    for (var node = target; node; node = node.parentElement) {
+      if (node.tagName === 'DETAILS') node.open = true;
+    }
+    requestAnimationFrame(function () { target.scrollIntoView({block: 'start'}); });
+  }
+  window.addEventListener('hashchange', openLinkedDetail);
+  openLinkedDetail();
+  window.addEventListener('beforeprint', function () {
+    printState = appendices.map(function (details) { return details.open; });
+    appendices.forEach(function (details) { details.open = true; });
+  });
+  window.addEventListener('afterprint', function () {
+    appendices.forEach(function (details, i) { details.open = Boolean(printState[i]); });
+  });
+}());
+</script>
+</body>
+</html>

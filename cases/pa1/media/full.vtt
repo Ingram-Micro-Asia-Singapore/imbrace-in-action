@@ -1,0 +1,49 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:10.800
+DocIQ, iMBrace's document reader, selects a model for each synthetic document.
+
+2
+00:00:10.840 --> 00:00:18.600
+A repeated invoice returns through the same drop zone.
+
+3
+00:00:18.600 --> 00:00:33.440
+Processing Logs show each document, its type and saved destination.
+
+4
+00:00:33.440 --> 00:00:39.120
+Invoice records show which items reached the demo destination or need attention.
+
+5
+00:00:39.120 --> 00:00:50.880
+A clean invoice reaches the demo destination; exceptions wait with visible reasons.
+
+6
+00:00:50.880 --> 00:01:02.920
+The two-page invoice is held because its purchase order is unknown.
+
+7
+00:01:03.000 --> 00:01:11.080
+The checks compare the extracted values with the purchase-order list.
+
+8
+00:01:11.120 --> 00:01:29.300
+An automated test corrects the purchase order and accepts the remaining values.
+
+9
+00:01:29.300 --> 00:01:55.300
+An automated test records finance decisions through the visible form.
+
+10
+00:01:55.300 --> 00:02:34.540
+Recorded decisions approve two invoices and reject the mismatched supplier entity.
+
+11
+00:02:35.260 --> 00:02:52.740
+The corrected invoice passes fresh checks before reaching the demo finance board.
+
+12
+00:02:52.740 --> 00:02:59.700
+The repeated invoice is marked duplicate, keeping the original posting.

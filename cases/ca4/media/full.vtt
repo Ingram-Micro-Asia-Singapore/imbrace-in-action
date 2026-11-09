@@ -1,0 +1,41 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:09.920
+Token Usage shows recorded model totals and estimated cost for the demo estate.
+
+2
+00:00:09.920 --> 00:00:17.120
+The agent table groups recorded tokens and estimated cost by model.
+
+3
+00:00:23.840 --> 00:00:34.520
+Review the usage entries alongside the demo agents your team operates.
+
+4
+00:00:52.920 --> 00:01:10.840
+Search AI Tracing for the agent you want to review.
+
+5
+00:01:10.840 --> 00:01:21.520
+Compare the recorded response times to choose an agent for closer review.
+
+6
+00:01:55.080 --> 00:02:07.100
+Open the workflow step to inspect its recorded error.
+
+7
+00:02:07.420 --> 00:02:14.500
+Search the audit log for review-note changes, with people and addresses masked.
+
+8
+00:02:14.500 --> 00:02:24.260
+The latest note update appears in the audit search results.
+
+9
+00:02:28.220 --> 00:02:38.100
+The MCP guide explains how its URL enables write tools.
+
+10
+00:02:39.120 --> 00:02:46.600
+Claude (automated test) set this note to Reviewed through MCP.

@@ -1,0 +1,29 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:10.500
+The request includes notes for the assistant to check against current policy.
+
+2
+00:00:10.500 --> 00:00:19.440
+Every scene cites the current policy sections.
+
+3
+00:00:19.440 --> 00:00:30.240
+The draft lists unsupported allowance and travel claims for HR review.
+
+4
+00:00:30.240 --> 00:00:38.140
+The checked script is submitted for the HR policy decision.
+
+5
+00:00:38.140 --> 00:00:48.520
+Typed by Claude (automated test) as the HR policy owner: request, approval, note.
+
+6
+00:00:48.520 --> 00:01:00.080
+The checked decision applies once and resumes the held script version.
+
+7
+00:01:00.080 --> 00:01:13.680
+The resumed workflow records approval beside the script.

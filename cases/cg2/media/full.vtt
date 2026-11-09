@@ -1,0 +1,73 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:23.520
+An automated test requests a hybrid-working training script as learning coordinator.
+
+2
+00:00:23.560 --> 00:01:15.640
+The request includes notes for the assistant to check against current policy.
+
+3
+00:01:15.680 --> 00:01:25.360
+Every scene cites the current policy sections.
+
+4
+00:01:25.480 --> 00:01:36.640
+The draft lists unsupported allowance and travel claims for HR review.
+
+5
+00:01:36.640 --> 00:01:45.040
+The checked script is submitted for the HR policy decision.
+
+6
+00:01:45.060 --> 00:01:46.180
+The request opens in DataIQ, iMBrace's records boards.
+
+7
+00:01:46.180 --> 00:02:02.980
+The script waits for the recorded HR policy decision.
+
+8
+00:02:02.980 --> 00:02:11.420
+The record keeps the draft label beside its script version.
+
+9
+00:02:11.460 --> 00:02:18.760
+The fixed check confirms current citations and policy-backed figures.
+
+10
+00:02:18.760 --> 00:02:25.240
+Open the workflow for a later script version.
+
+11
+00:02:25.280 --> 00:02:35.520
+The workflow keeps the script waiting for the HR policy decision.
+
+12
+00:02:36.280 --> 00:02:45.240
+The separate board keeps the recorded decisions together.
+
+13
+00:02:45.280 --> 00:02:51.040
+Typed by Claude (automated test) as the HR policy owner.
+
+14
+00:02:51.080 --> 00:03:02.120
+Typed by Claude (automated test) as the HR policy owner: request, approval, note.
+
+15
+00:03:02.120 --> 00:03:08.480
+Saving the decision starts its separate workflow.
+
+16
+00:03:08.520 --> 00:03:16.520
+The board shows the decision entered for this script.
+
+17
+00:03:16.520 --> 00:03:28.360
+The checked decision applies once and resumes the held script version.
+
+18
+00:03:28.360 --> 00:03:41.970
+The resumed workflow records approval beside the script.

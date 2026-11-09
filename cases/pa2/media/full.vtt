@@ -1,0 +1,117 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:12.200
+Find this fictional company’s supplier bills on the records board.
+
+2
+00:00:12.240 --> 00:00:30.440
+The bills show rule-based coding, an AI suggestion and a tax-check exception.
+
+3
+00:00:30.440 --> 00:00:42.880
+The rule-coded bill carries its account, tax and total checks for approval.
+
+4
+00:00:43.680 --> 00:00:49.400
+Finance maintains the coding rules on a records board.
+
+5
+00:00:49.400 --> 00:00:58.640
+Fixed workflow steps apply the rules before requesting an AI suggestion.
+
+6
+00:00:59.400 --> 00:01:20.400
+An uncovered bill line receives a labelled AI coding suggestion.
+
+7
+00:01:20.400 --> 00:01:31.680
+The AI suggestion waits for a recorded review and correction.
+
+8
+00:01:31.720 --> 00:01:38.080
+Typed by Claude (automated test) as the AP clerk.
+
+9
+00:01:38.120 --> 00:01:44.320
+Typed by Claude (automated test) as the AP clerk: change the cost centre.
+
+10
+00:01:44.360 --> 00:01:54.400
+The automated AP-clerk role marks the correction and saves it.
+
+11
+00:01:54.400 --> 00:01:56.440
+Saving the correction starts the board’s recheck workflow.
+
+12
+00:01:57.240 --> 00:02:20.680
+The recheck validates the correction against the current coding controls.
+
+13
+00:02:20.680 --> 00:02:31.560
+The corrected bill becomes the current checked version for approval.
+
+14
+00:02:31.560 --> 00:02:41.020
+The bill note keeps the AI suggestion beside the recorded correction.
+
+15
+00:02:41.020 --> 00:02:50.940
+The selected AI step shows its suggestion for the uncovered line.
+
+16
+00:02:51.660 --> 00:02:56.260
+The bank-lines board holds fictional receipts for matching.
+
+17
+00:02:56.260 --> 00:03:04.420
+Find the fictional receipts used in this workflow.
+
+18
+00:03:04.460 --> 00:03:22.500
+Matching uses the customer, invoice reference and receipt amount.
+
+19
+00:03:22.500 --> 00:03:34.700
+The short payment proposes part-payment and keeps the remaining balance open.
+
+20
+00:03:35.380 --> 00:03:40.020
+The decisions board holds the item and version for finance review.
+
+21
+00:03:40.020 --> 00:03:56.580
+Find the recorded decisions for these fictional bills and receipts.
+
+22
+00:03:56.580 --> 00:04:09.460
+The decision record explains why finance needs the current bill version.
+
+23
+00:04:09.500 --> 00:04:14.980
+Typed by Claude (automated test) as the finance controller.
+
+24
+00:04:15.020 --> 00:04:24.100
+Typed by Claude (automated test) as the finance controller.
+
+25
+00:04:24.100 --> 00:04:29.180
+The automated finance-controller role selects Approve.
+
+26
+00:04:29.180 --> 00:04:39.140
+The note records the reason for leaving the remaining balance open.
+
+27
+00:04:39.180 --> 00:04:41.620
+Saving the automated decision starts the posting workflow.
+
+28
+00:04:42.340 --> 00:04:48.020
+Open the fictional invoices to see the remaining amounts.
+
+29
+00:04:48.060 --> 00:04:57.060
+The fictional invoice is part paid, with its remaining balance still open.

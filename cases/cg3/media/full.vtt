@@ -1,0 +1,125 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:14.133
+Each fictional product attribute has a value and unit for the writer.
+
+2
+00:00:14.133 --> 00:00:19.733
+The headset's product record brings its battery life and features together.
+
+3
+00:01:07.933 --> 00:01:15.133
+A catalogue request asks the writer for product copy.
+
+4
+00:01:15.200 --> 00:01:22.467
+Supplier notes bring claims for the workflow to check against product attributes.
+
+5
+00:01:22.533 --> 00:01:28.267
+Typed by Claude (automated test) as the merchandiser.
+
+6
+00:01:28.333 --> 00:02:00.133
+Saving the request starts the writing and checking workflow.
+
+7
+00:02:36.133 --> 00:02:39.067
+The checked draft is ready for the merchandiser's review.
+
+8
+00:02:50.800 --> 00:02:57.333
+The short and long descriptions follow the fictional product's attributes.
+
+9
+00:02:57.467 --> 00:03:03.733
+Each configured figure and feature points back to its product attribute.
+
+10
+00:03:03.867 --> 00:03:11.333
+The checks identify supplier claims that need correction.
+
+11
+00:03:38.467 --> 00:03:44.467
+The workflow view shows the writing and checking steps together.
+
+12
+00:04:31.933 --> 00:04:37.267
+An automated test adds the merchandiser's decision for this product.
+
+13
+00:04:37.267 --> 00:04:43.133
+The decision names the exact text version being approved.
+
+14
+00:04:43.267 --> 00:04:49.667
+Typed by Claude (automated test) as the merchandiser.
+
+15
+00:04:49.667 --> 00:05:03.533
+The workflow rechecks the decision, draft version and current product attributes.
+
+16
+00:05:22.600 --> 00:05:33.133
+The recorded decision is applied to this exact draft version.
+
+17
+00:06:28.867 --> 00:06:36.500
+The approved text reaches the demo catalogue with its recorded decision.
+
+18
+00:06:36.500 --> 00:06:40.980
+An automated setup prepares the fictional product's 14-hour battery draft.
+
+19
+00:06:40.980 --> 00:06:45.180
+That draft's recorded approval places its text on the demo catalogue.
+
+20
+00:06:45.180 --> 00:06:49.380
+Another 14-hour draft is ready for review.
+
+21
+00:06:59.340 --> 00:07:06.660
+The demo catalogue displays the approved 14-hour description.
+
+22
+00:07:20.300 --> 00:07:27.500
+Typed by Claude (automated test): battery changes to 12 hours.
+
+23
+00:07:37.940 --> 00:07:45.340
+The waiting draft keeps the 14-hour value used when it was written.
+
+24
+00:07:49.420 --> 00:07:53.900
+An automated test enters an approval for the older draft.
+
+25
+00:07:53.940 --> 00:07:58.940
+The decision identifies the exact older text version.
+
+26
+00:07:58.940 --> 00:08:15.980
+Typed by Claude (automated test) as the merchandiser.
+
+27
+00:08:16.020 --> 00:08:23.340
+The workflow holds the older draft because its source attributes changed.
+
+28
+00:08:27.420 --> 00:08:49.740
+A new request asks the writer to use the updated attributes.
+
+29
+00:09:00.580 --> 00:09:07.980
+The corrected draft says 12 hours and replaces the older waiting draft.
+
+30
+00:09:18.940 --> 00:09:26.060
+The demo catalogue retains the approved text while the corrected draft waits.
+
+31
+00:09:26.060 --> 00:09:28.300
+The fictional product's battery value returns to 14 hours.

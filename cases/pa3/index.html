@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Turn a purchase order into one approved sales order | Ingram Micro · iMBrace demos</title>
+<link rel="icon" href="../../brand/ingram-micro-logo.svg" type="image/svg+xml">
+<style>/* Ingram Micro brand tokens for the iMBrace study site, clickthroughs and video cards.
+   Colours are the "IM" theme of Ingram-template.pptx; the extra blues, the rust accent and the
+   type stack follow Ingram's own demo site (ingram-micro-asia-singapore.github.io/bob-in-action-v2).
+   System fonts only, so pages work offline. Light theme, as in the reference site. */
+:root {
+  --ink: #1E1F24;          /* body text (theme dk1) */
+  --black: #000000;
+  --paper: #FFFFFF;        /* cards, sidebar (lt1) */
+  --paper-soft: #F2F2F2;   /* page background (accent4) */
+  --rule: #EFEFEF;         /* dividers (lt2) */
+  --muted: #9B9EA1;        /* secondary text (folHlink) */
+  --blue: #0076D3;         /* primary brand blue (accent1, links) */
+  --blue-deep: #004B8E;    /* accent2, link labels */
+  --blue-dark: #00599F;
+  --blue-light: #4CB0FE;
+  --blue-pale: #C3E4FE;
+  --blue-graphic: #0077D4; /* large brand shapes */
+  --navy: #142037;         /* accent5, dark panels and title cards */
+  --grey: #A5A5A5;
+  --grey-light: #DBDBDB;
+  --example: #B93D0B;      /* rust: numbered call-outs, quotes, "example" markers */
+
+  --font-display: "Arial Black", Arial, sans-serif;           /* theme major font */
+  --font-heading: "Helvetica Neue", Arial, sans-serif;
+  --font-body: Arial, "Helvetica Neue", sans-serif;           /* theme minor font */
+  --font-mono: Consolas, "Courier New", monospace;
+}
+body { margin: 0; background: var(--paper-soft); color: var(--ink); font: 16px/1.6 var(--font-body); }
+a { color: var(--blue); }
+/* Uppercase, spaced label above a headline. */
+.eyebrow { font: 700 13px/1.4 var(--font-heading); letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
+/* Headlines are plain sentences that state one claim. */
+h1, .display { font: 900 clamp(32px, 5vw, 60px)/1.1 var(--font-heading); margin: .2em 0 .4em; }
+h2 { font: 700 clamp(22px, 2.6vw, 28px)/1.25 var(--font-heading); margin: 1.2em 0 .6em; }
+/* Section tag: small box with a blue rule on the left. */
+.tag { display: inline-block; padding: 4px 12px; background: var(--paper); border-left: 4px solid var(--blue); font: 700 14px/1.4 var(--font-heading); }
+.tag.is-example { border: 2px solid var(--example); border-left-width: 2px; color: var(--example); }
+/* Numbered call-out beside a figure. */
+.callout-n { display: inline-grid; place-items: center; width: 22px; height: 22px; border: 2px solid var(--example); font: 700 13px var(--font-heading); }
+/* Quote with evidence id. */
+blockquote { margin: 1em 0; padding: 0 0 0 16px; border-left: 4px solid var(--example); }
+blockquote cite { display: block; font: 13px var(--font-body); font-style: normal; color: var(--ink); }
+/* Video card: black frame, square blue play button, an honesty label in deep blue. */
+.video-card { background: var(--paper); }
+.video-card .frame { position: relative; aspect-ratio: 16 / 9; background: var(--black); }
+.video-card .play { position: absolute; inset: 0; margin: auto; width: 44px; height: 44px; background: var(--blue); }
+.video-card .label { color: var(--blue-deep); font-weight: 700; font-size: 14px; }</style>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+:root {
+  color-scheme: light dark;
+  --p-page: var(--paper-soft);
+  --p-surface: var(--paper);
+  --p-text: var(--ink);
+  --p-heading: var(--black);
+  --p-secondary: var(--blue-deep);
+  --p-link: var(--blue-deep);
+  --p-rule: var(--grey-light);
+  --p-control: var(--blue-deep);
+  --p-button: var(--blue-deep);
+  --p-button-text: var(--paper);
+  --p-focus: var(--blue-deep);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --p-page: var(--navy);
+    --p-surface: var(--ink);
+    --p-text: var(--paper);
+    --p-heading: var(--paper);
+    --p-secondary: var(--grey-light);
+    --p-link: var(--blue-light);
+    --p-rule: var(--grey);
+    --p-control: var(--blue-light);
+    --p-button: var(--blue-light);
+    --p-button-text: var(--navy);
+    --p-focus: var(--blue-light);
+  }
+}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; overflow-wrap: anywhere; background: var(--p-page); color: var(--p-text); font: 16px/1.6 var(--font-body); }
+img, video { max-width: 100%; }
+h1, h2, h3, p, ol, ul, figure { margin-top: 0; }
+h1, h2, h3 { color: var(--p-heading); }
+h1 { max-width: 18ch; font: 700 clamp(32px, 4vw, 48px)/1.1 var(--font-heading); }
+h2 { max-width: 28ch; font: 700 clamp(24px, 3vw, 32px)/1.25 var(--font-heading); }
+h3 { font: 700 20px/1.3 var(--font-heading); }
+p, li { max-width: 70ch; }
+a { color: var(--p-link); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 3px; }
+button, summary { font: inherit; }
+:focus-visible { outline: 3px solid var(--p-focus); outline-offset: 3px; }
+.p-skip { position: absolute; left: 16px; top: -96px; z-index: 20; padding: 16px 24px; background: var(--p-button); color: var(--p-button-text); font-weight: 700; }
+.p-skip:focus { top: 16px; }
+.p-shell { width: min(calc(100% - 64px), 1280px); margin-inline: auto; }
+.p-section { padding-block: 64px; }
+.p-eyebrow { margin-bottom: 8px; color: var(--p-secondary); font: 700 13px/1.4 var(--font-heading); letter-spacing: .14em; text-transform: uppercase; }
+.p-lead { max-width: 70ch; font-size: 18px; line-height: 1.5; }
+.p-top { border-bottom: 1px solid var(--p-rule); background: var(--p-surface); }
+.p-top .p-shell { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.p-logo-plate { display: block; flex: none; padding: 24px; background: var(--paper); }
+.p-logo-plate .wordmark { display: block; width: 132px; height: auto; }
+.p-nav { display: flex; flex-wrap: wrap; gap: 8px 24px; padding-block: 24px; }
+.p-nav a { min-height: 44px; display: inline-flex; align-items: center; font-weight: 700; }
+.p-hero { position: relative; overflow: hidden; padding-block: 96px; }
+.p-hero-copy { position: relative; z-index: 1; max-width: 920px; }
+.p-hero .letterform { position: absolute; right: -4%; top: 0; height: 100%; width: auto; opacity: .18; pointer-events: none; }
+.p-audience { margin: 24px 0 16px; font-weight: 700; }
+.p-limit-box { max-width: 920px; margin-top: 32px; padding: 24px; border-left: 4px solid var(--p-control); background: var(--p-surface); }
+.p-limit-box h2 { margin: 0 0 16px; font-size: 20px; }
+.p-limit-box ul { margin: 0; padding-left: 24px; }
+.p-limit-box li + li { margin-top: 8px; }
+.p-proof { background: var(--p-surface); }
+.p-section-head { margin-bottom: 32px; }
+.p-media { max-width: 1120px; }
+.p-media + .p-media { margin-top: 32px; }
+.p-media video { display: block; width: 100%; height: auto; background: var(--black); }
+.p-media figcaption { padding: 16px 0 0; color: var(--p-secondary); font-size: 14px; }
+.p-remaster-note { max-width: 70ch; margin-top: 24px; color: var(--p-secondary); }
+.p-labels { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 16px 0 0; padding: 0; list-style: none; color: var(--p-secondary); font-size: 14px; font-weight: 700; }
+.p-labels li { position: relative; padding-left: 16px; }
+.p-labels li::before { content: ""; position: absolute; left: 0; top: .65em; width: 8px; height: 8px; background: var(--blue); }
+.p-disclosure { max-width: 1120px; margin-top: 32px; border-top: 1px solid var(--p-rule); border-bottom: 1px solid var(--p-rule); background: var(--p-surface); }
+.p-disclosure summary { min-height: 56px; display: flex; align-items: center; padding: 16px 24px; color: var(--p-heading); font-weight: 700; cursor: pointer; }
+.p-disclosure summary::marker { color: var(--p-control); }
+.p-disclosure > summary::after { content: "+"; margin-left: auto; padding-left: 16px; color: var(--p-control); font-size: 20px; }
+.p-disclosure[open] > summary::after { content: "\2212"; }
+.p-detail-body { padding: 0 24px 24px; }
+.p-clip-guide li + li { margin-top: 8px; }
+.p-screen { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 24px; align-items: start; }
+.p-screen-frame { position: relative; min-width: 0; overflow: hidden; border: 1px solid var(--p-rule); background: var(--paper); }
+.p-screen-frame img { display: block; width: 100%; height: auto; }
+.p-screen-hot { position: absolute; border: 3px solid var(--blue); box-shadow: 0 0 0 2px var(--paper); pointer-events: none; }
+.p-screen-hot span { position: absolute; left: -3px; bottom: calc(100% + 8px); display: grid; place-items: center; width: 28px; height: 28px; border: 2px solid var(--example); background: var(--paper); color: var(--example); font: 700 14px/1 var(--font-heading); }
+.p-screen-copy { padding: 24px; background: var(--p-page); }
+.p-screen-copy h3 { margin: 8px 0 16px; }
+.p-screen-business { font-size: 18px; line-height: 1.5; }
+.p-screen-raw { margin-top: 24px; }
+.p-screen-raw summary { min-height: 44px; padding: 8px 0; color: var(--p-link); font-weight: 700; }
+.p-screen-raw p { font-size: 14px; }
+.p-screen-controls { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 24px; }
+.p-btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 8px 24px; border: 1px solid var(--p-control); font-weight: 700; text-decoration: none; cursor: pointer; }
+.p-btn-primary { border-color: var(--p-button); background: var(--p-button); color: var(--p-button-text); }
+.p-btn-secondary { background: var(--p-surface); color: var(--p-text); }
+.p-journey { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 32px 0 0; padding: 0; list-style: none; counter-reset: journey; }
+.p-journey li { position: relative; min-width: 0; padding: 24px; border-top: 4px solid var(--p-control); background: var(--p-surface); counter-increment: journey; }
+.p-journey li::before { content: counter(journey); display: grid; place-items: center; width: 32px; height: 32px; margin-bottom: 16px; border: 2px solid var(--example); background: var(--paper); color: var(--example); font-weight: 700; }
+.p-journey h3 { margin: 0 0 8px; }
+.p-journey p { margin-bottom: 16px; }
+.p-journey a { font-size: 14px; font-weight: 700; }
+.p-business-case { background: var(--p-surface); }
+.p-business-grid, .p-business-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.p-business-card { min-width: 0; padding: 24px; border-top: 4px solid var(--p-control); background: var(--p-page); }
+.p-business-card h3 { margin-bottom: 8px; }
+.p-business-card p:last-child { margin-bottom: 0; }
+.p-business-meta { margin-top: 24px; }
+.p-business-meta .p-business-card { border-top-width: 1px; }
+.p-business-demand { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--p-rule); }
+.p-business-demand h3, .p-business-cta h3 { margin-bottom: 8px; }
+.p-business-sources { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 16px 0 0; padding: 0; list-style: none; }
+.p-business-sources a { font-weight: 700; }
+.p-business-try { margin-top: 24px; padding: 24px; border-left: 4px solid var(--p-control); background: var(--p-page); }
+.p-business-try p:last-child { margin-bottom: 0; }
+.p-business-cta { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-top: 32px; padding: 24px; background: var(--p-page); }
+.p-business-cta-copy { min-width: 0; }
+.p-business-cta-copy p { margin-bottom: 0; }
+.p-business-cta .p-btn { flex: none; }
+.p-next { background: var(--navy); color: var(--paper); }
+.p-next h2 { color: var(--paper); }
+.p-next .p-eyebrow { color: var(--grey-light); }
+.p-next .p-lead { margin-bottom: 24px; }
+.p-next-actions { display: flex; flex-wrap: wrap; gap: 16px 24px; }
+.p-next .p-btn-primary { background: var(--blue-light); border-color: var(--blue-light); color: var(--navy); }
+.p-next .p-btn-secondary { background: var(--navy); border-color: var(--blue-light); color: var(--paper); }
+.p-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.p-details-grid .p-disclosure { margin-top: 0; align-self: start; }
+.p-route + .p-route, .p-record + .p-record { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--p-rule); }
+.p-route h3, .p-record h3 { margin-bottom: 8px; }
+.p-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 24px; padding: 0; list-style: none; }
+.p-foot { padding-block: 32px; border-top: 1px solid var(--p-rule); background: var(--p-surface); }
+.p-foot .p-shell { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; }
+.p-foot p { margin: 0; font-size: 14px; }
+@media (max-width: 960px) {
+  .p-top .p-shell { align-items: flex-start; }
+  .p-screen { grid-template-columns: 1fr; }
+  .p-journey { grid-template-columns: 1fr 1fr; }
+  .p-business-cta { align-items: stretch; flex-direction: column; }
+  .p-details-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .p-shell { width: calc(100% - 32px); }
+  .p-section { padding-block: 48px; }
+  .p-top .p-shell { display: block; }
+  .p-logo-plate { width: fit-content; padding: 24px; }
+  .p-logo-plate .wordmark { width: 120px; }
+  .p-nav { padding: 16px 0 24px; }
+  .p-hero { padding-block: 64px; }
+  .p-hero .letterform { display: none; }
+  .p-limit-box, .p-screen-copy, .p-journey li { padding: 16px; }
+  .p-disclosure summary { padding-inline: 16px; }
+  .p-detail-body { padding: 0 16px 16px; }
+  .p-journey { grid-template-columns: 1fr; gap: 16px; }
+  .p-business-grid, .p-business-meta { grid-template-columns: 1fr; gap: 16px; }
+  .p-business-card, .p-business-try, .p-business-cta { padding: 16px; }
+  .p-btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media print {
+  :root { color-scheme: light; --p-page: var(--paper); --p-surface: var(--paper); --p-text: var(--ink); --p-heading: var(--black); --p-secondary: var(--blue-deep); --p-link: var(--blue-deep); --p-rule: var(--grey-light); }
+  .p-top, .p-skip, .p-next-actions, .p-screen-controls, details.p-screens { display: none !important; }
+  .p-section, .p-hero { padding-block: 24px; }
+  .p-hero .letterform { display: none; }
+  .p-details-grid { display: block; }
+  .p-business-card, .p-business-demand, .p-business-try, .p-business-cta { break-inside: avoid; }
+  .p-business-source::after { content: " (" attr(href) ")"; font-weight: 400; }
+  details.p-appendix { break-inside: avoid; }
+  details.p-appendix:not([open]) > .p-detail-body { display: block !important; }
+  details.p-appendix + details.p-appendix { margin-top: 24px; }
+  .p-next { background: var(--paper); color: var(--ink); border-block: 1px solid var(--grey-light); }
+  .p-next h2 { color: var(--black); }
+}
+
+
+.partner-rewrite-v3 { --p-page: var(--paper); }
+.partner-rewrite-v3 .p-logo-plate { padding: 24px 0; background: transparent; }
+.partner-rewrite-v3 .p-logo-plate .wordmark { width: 192px; height: auto; }
+.partner-rewrite-v3 .p-top { position: fixed; inset: 0 auto 0 0; width: 240px; overflow-y: auto; border-right: 1px solid var(--p-rule); border-bottom: 0; }
+.partner-rewrite-v3 .p-top .p-shell { display: block; width: calc(100% - 48px); }
+.partner-rewrite-v3 .p-nav { flex-direction: column; gap: 8px; }
+.partner-rewrite-v3 .p-nav a { padding: 0 8px; }
+.partner-rewrite-v3 main, .partner-rewrite-v3 .p-foot { margin-left: 240px; }
+.partner-rewrite-v3 .p-hero .letterform { display: block; right: 0; opacity: 1; height: 100%; width: auto; }
+.partner-rewrite-v3 .p-hero::after { content: none; }
+.partner-rewrite-v3 .p-hero-copy { padding-right: 160px; }
+.partner-rewrite-v3 .p-business-card { background: var(--p-surface); }
+.partner-rewrite-v3 .p-next { --p-focus: var(--blue-light); }
+.partner-rewrite-v3 .p-details-grid { display: block; }
+@media (prefers-color-scheme: dark) { .partner-rewrite-v3 { --p-page: var(--navy); } }
+@media (max-width: 960px) {
+  .partner-rewrite-v3 .p-top { position: static; width: auto; border-right: 0; border-bottom: 1px solid var(--p-rule); }
+  .partner-rewrite-v3 .p-top .p-shell { width: calc(100% - 32px); }
+  .partner-rewrite-v3 .p-nav { flex-direction: row; }
+  .partner-rewrite-v3 main, .partner-rewrite-v3 .p-foot { margin-left: 0; }
+  .partner-rewrite-v3 .p-logo-plate .wordmark { width: 168px; }
+}
+@media (max-width: 768px) {
+  .partner-rewrite-v3 .p-hero-copy { padding-right: 48px; }
+  .partner-rewrite-v3 .p-hero .letterform { width: 32px; height: 100%; }
+}
+@media print {
+  .partner-rewrite-v3 main, .partner-rewrite-v3 .p-foot { margin-left: 0; }
+  .partner-rewrite-v3 .p-hero::after { display: none; }
+  .partner-rewrite-v3 details.p-appendix { break-inside: auto; }
+  .partner-rewrite-v3 .p-appendix > summary, .partner-rewrite-v3 .p-detail-body :is(h2, h3, h4, h5, h6) { break-after: avoid; }
+  .partner-rewrite-v3 .p-detail-body h3 { margin-bottom: 8px; }
+  .partner-rewrite-v3 .p-next .p-eyebrow { color: var(--blue-deep); }
+  .partner-rewrite-v3 .p-foot .p-shell > p:last-child { display: none; }
+  .partner-rewrite-v3 .p-foot { break-inside: avoid; padding-block: 8px; }
+  .partner-rewrite-v3 .video-experience { break-inside: avoid; }
+  .partner-rewrite-v3 .video-experience video { display: none; }
+  .partner-rewrite-v3 .video-experience .video-print-poster { display: block; width: 100%; height: auto; }
+}
+</style>
+<style>
+.video-experience { margin-block: 24px; min-width: 0; }
+.video-experience h3 { margin: 0 0 12px; }
+.video-experience-layout { display: grid; gap: 20px; align-items: start; }
+.video-experience.has-chapters .video-experience-layout { grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr); }
+.video-experience figure { min-width: 0; margin: 0; }
+.video-experience video { display: block; width: 100%; height: auto; background: var(--black); }
+.video-experience .video-print-poster { display: none; }
+.video-experience figcaption { padding: 12px; }
+.video-chapters { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.video-chapters button { width: 100%; min-height: 44px; padding: 12px; border: 1px solid var(--grey-light); background: var(--paper); color: var(--ink); text-align: left; font: inherit; cursor: pointer; overflow-wrap: anywhere; }
+.video-chapters button span { font-variant-numeric: tabular-nums; font-weight: bold; }
+.video-chapters button:focus-visible, .video-experience video:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+@media (max-width: 700px) { .video-experience.has-chapters .video-experience-layout { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body class="presentation-v2 partner-rewrite-v3">
+<a class="p-skip" href="#main">Skip to content</a>
+<header class="p-top">
+  <div class="p-shell">
+    <a class="p-logo-plate" href="../../index.html" aria-label="Ingram Micro iMBrace demo study home"><svg class="wordmark" role="img" aria-label="Ingram Micro" viewBox="0 0 523.77 95.4" xmlns="http://www.w3.org/2000/svg" overflow="hidden"><defs></defs><g><g><path d="M495.17 20.36C495.17 18.14 497.31 17.23 500.79 17.23 504.27 17.23 506.41 18.06 506.41 20.36 506.41 23.22 502.94 23.55 500.77 23.55 497.3 23.55 495.17 22.64 495.17 20.36M509.72 20.36C509.72 16 506.38 12.97 500.77 12.97 496.71 12.97 491.85 14.99 491.85 20.36 491.85 25.73 496.16 27.8 500.77 27.8 505.38 27.8 509.72 25.49 509.72 20.36M495.2 40.82 495.2 37.73C495.2 35.81 496.41 35.11 497.39 35.11 498.48 35.11 499.63 35.85 499.63 37.73L499.63 40.82 495.2 40.82ZM502.62 40.82 502.62 37.86 509.47 35.21 509.47 30.7 501.8 33.92C501.12 32.05 499.3 30.91 497.32 30.91 494.12 30.91 492.11 33 492.11 37.18L492.11 44.88 509.47 44.88 509.47 40.82 502.62 40.82ZM498.57 48.73C494.39 49.18 491.85 51.41 491.85 55.76 491.85 60.98 495.98 63.55 500.79 63.55 505.6 63.55 509.72 61.06 509.72 55.89 509.72 51.89 507.37 49.16 503.38 48.73L503.14 52.68C504.81 52.91 506.41 53.79 506.41 55.69 506.41 58.76 503.35 59.03 500.96 59.03 498.86 59.03 495.12 58.75 495.12 55.89 495.12 53.67 496.91 53 498.83 52.98L498.57 48.73ZM509.47 67.46 492.1 67.46 492.1 71.51 509.47 71.51 509.47 67.46ZM509.47 84.93 509.47 87.71 495.32 91.89 495.32 91.99 509.47 91.99 509.47 95.4 492.11 95.4 492.11 89.05 502.51 86.01 492.11 82.83 492.11 76.47 509.47 76.47 509.47 80.51 495.32 80.51 495.32 80.62 509.47 84.93ZM151.99 95.4 86.29 95.4C81.2 76.52 70.42 36.67 70.42 36.67L70.24 36.67 70.24 95.4 43.38 95.4 43.38 14.23 90 14.23C94.91 32.96 105.21 71.47 105.21 71.47L105.38 71.47 105.38 14.23 132.31 14.23 132.31 26.56C125.74 33.49 121.76 42.35 121.76 53.46 121.76 69.41 130.71 89.2 151.98 95.4M471.21 14.23 471.21 95.4 443.08 95.4 443.08 31.83 442.66 31.83 426.5 95.4 400.52 95.4 384.41 31.83 383.98 31.83 383.98 95.4 334.77 95.4 329.86 77.92 303.41 77.92 298.51 95.4 251.49 95.4C251.49 95.4 249.89 83.44 249.48 80.46 248.09 70.4 245.06 67.96 239.06 67.96L230.85 67.96 230.85 95.4 182.68 95.4C196.56 92.24 209.09 85.94 216.26 81.61L206.15 43.25 179.25 50.34 184.98 72.1C183.3 73.3 177.7 75.26 173.86 75.26 161.01 75.26 154.92 62.39 154.92 51.3 154.92 33.45 173.1 26.58 189.14 26.58 192.86 26.58 197.68 26.91 198.36 26.99L195 14.25 251.06 14.25C273.5 14.25 282.2 24.89 282.2 36.21 282.2 53.34 265.85 56.56 262.74 57.11 262.69 57.12 262.69 57.59 262.74 57.6 269.27 58.84 274.06 62 277.13 67.51 277.02 67.32 294.3 18.71 295.86 14.25L338.96 14.25 357.15 65.15 357.38 65.15 357.38 14.23 403.73 14.23C403.73 14.23 414.47 58.67 414.54 58.67 418.03 43.88 425.05 14.23 425.05 14.23L471.22 14.23ZM0 14.23 31.22 14.23C31.22 14.23 31.18 68.17 31.18 95.4 30.98 95.4 0.19 95.42 0 95.4L0 14.23ZM316.39 31.66 307.66 58.42 325.66 58.42 316.85 31.66 316.38 31.66ZM230.84 49.66 240.12 49.66C247.71 49.66 250.88 45.74 250.88 40.94 250.88 34.81 245.65 32.4 240.12 32.4L230.84 32.4 230.84 49.66Z" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" fill="#0077D4" fill-opacity="1"/><path d="M513.47 5.15C513.47 2.31 515.78 0 518.62 0 521.46 0 523.77 2.31 523.77 5.15 523.77 7.99 521.46 10.3 518.62 10.3 515.78 10.3 513.47 7.99 513.47 5.15M522.52 5.15C522.52 2.74 520.78 1 518.63 1 516.48 1 514.73 2.74 514.73 5.15 514.73 7.56 516.47 9.31 518.63 9.31 520.79 9.31 522.52 7.56 522.52 5.15M516.64 2.21 518.81 2.21C520.21 2.21 520.96 2.7 520.96 3.92 520.96 4.92 520.39 5.4 519.43 5.49L521 8.05 519.88 8.05 518.37 5.54 517.71 5.54 517.71 8.05 516.62 8.05 516.62 2.21ZM517.73 4.71 518.68 4.71C519.32 4.71 519.88 4.63 519.88 3.84 519.88 3.16 519.25 3.04 518.69 3.04L517.72 3.04 517.72 4.71Z" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" fill="#0077D4" fill-opacity="1"/></g></g></svg></a>
+    <nav class="p-nav" aria-label="Case navigation">
+      <a href="#proof">Watch the workflow</a><a href="#how">How it works</a><a href="#business-case">Business case</a><a href="#next">Next step</a><a href="#details">Details</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="p-hero">
+    <svg class="letterform" aria-hidden="true" focusable="false" preserveAspectRatio="xMinYMid slice" viewBox="0 0 382.01 1078.54" xmlns="http://www.w3.org/2000/svg" overflow="hidden"><defs><clipPath id="g1-clip"><rect x="0" y="0" width="382.01" height="1078.54" fill="none"/></clipPath></defs><g><g clip-path="url(#g1-clip)"><path d="M519.95 2127.97C534 2127.97 539.75 2141.49 539.75 2163.48 539.75 2185.47 534.53 2198.98 519.95 2198.98 501.89 2198.98 499.79 2177.08 499.79 2163.35 499.79 2141.41 505.54 2127.97 519.95 2127.97M519.95 2219.91C547.52 2219.91 566.67 2198.82 566.67 2163.35 566.67 2137.72 553.92 2106.96 519.95 2106.96 485.98 2106.96 472.91 2134.21 472.91 2163.35 472.91 2192.49 487.48 2219.91 519.95 2219.91M390.68 2128.13 410.23 2128.13C422.38 2128.13 426.79 2135.78 426.79 2141.98 426.79 2148.86 422.09 2156.15 410.23 2156.15L390.68 2156.15 390.68 2128.13ZM390.68 2175.01 409.38 2175.01 426.14 2218.33 454.64 2218.33 434.32 2169.87C446.14 2165.58 453.35 2154.04 453.35 2141.53 453.35 2121.33 440.15 2108.62 413.72 2108.62L365.06 2108.62 365.06 2218.33 390.69 2218.33 390.69 2175.01ZM340.68 2149.42C337.81 2122.98 323.76 2106.95 296.23 2106.95 263.28 2106.95 247 2133.06 247 2163.47 247 2193.88 262.75 2219.91 295.42 2219.91 320.68 2219.91 337.97 2205.05 340.68 2179.87L315.74 2178.33C314.28 2188.86 308.7 2198.98 296.71 2198.98 277.32 2198.98 275.58 2179.63 275.58 2164.57 275.58 2151.29 277.32 2127.65 295.42 2127.65 309.47 2127.65 313.68 2138.94 313.8 2151.09L340.68 2149.43ZM222.34 2218.32 222.34 2108.57 196.75 2108.57 196.75 2218.32 222.34 2218.32ZM111.94 2218.32 94.37 2218.32 67.97 2128.89 67.32 2128.89 67.32 2218.32 45.78 2218.32 45.78 2108.61 85.9 2108.61 105.09 2174.32 125.21 2108.61 165.37 2108.61 165.37 2218.32 139.82 2218.32 139.82 2128.89 139.13 2128.89 111.92 2218.32ZM45.79-40.68 45.79-455.85C165.1-488 416.91-556.13 416.91-556.13L416.91-557.26 45.79-557.26 45.79-727.01 558.69-727.01 558.69-432.4C440.31-401.35 197-336.29 197-336.29L197-335.2 558.69-335.2 558.69-165 480.76-165C436.96-206.54 380.96-231.64 310.8-231.64 209.99-231.64 84.94-175.08 45.79-40.67M558.69 1976.57 45.79 1976.57 45.79 1798.8 447.48 1798.8 447.48 1796.17 45.79 1694.03 45.79 1529.86 447.48 1428.08 447.48 1425.37 45.79 1425.37 45.79 1114.41 156.27 1083.36 156.27 916.2 45.79 885.23 45.79 588.07C45.79 588.07 121.38 577.99 140.2 575.36 203.8 566.57 219.19 547.43 219.19 509.49L219.19 457.59 45.79 457.59 45.79 153.2C65.75 240.89 105.55 320.08 132.95 365.42L375.37 301.53 330.59 131.57 193.06 167.76C185.49 157.11 173.1 121.73 173.1 97.52 173.1 16.35 254.43-22.19 324.51-22.19 437.3-22.19 480.74 92.67 480.74 194.04 480.74 217.52 478.68 248.01 478.15 252.3L558.67 231.05 558.67 585.29C558.67 727.11 491.42 782.09 419.89 782.09 311.63 782.09 291.27 678.77 287.79 659.14 287.71 658.82 284.75 658.82 284.71 659.14 276.9 700.39 256.9 730.68 222.08 750.07 223.25 749.38 530.45 858.57 558.67 868.45L558.67 1140.79 237.02 1255.73 237.02 1257.19 558.67 1257.19 558.67 1550.1C558.67 1550.1 277.83 1617.95 277.83 1618.4 371.31 1640.46 558.67 1684.84 558.67 1684.84L558.67 1976.57ZM558.69-1001.09 558.69-803.81C558.69-803.81 217.81-804.05 45.79-804.05 45.79-805.3 45.67-999.87 45.79-1001.09L558.69-1001.09ZM448.53 998.21 279.42 943.07 279.42 1056.83 448.53 1001.16 448.53 998.2ZM334.81 457.58 334.81 516.24C334.81 564.21 359.59 584.21 389.91 584.21 428.65 584.21 443.88 551.13 443.88 516.24L443.88 457.58 334.81 457.58Z" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" fill="#0077D4" fill-opacity="1"/></g></g></svg>
+    <div class="p-shell p-hero-copy">
+      <p class="p-eyebrow">PA-3 · Process automation</p>
+      <h1>Turn a purchase order into one approved sales order</h1>
+      <p class="p-audience">Who it is for: Order desks and customer-service teams at distributors and wholesalers.</p>
+      <p class="p-lead">Read the purchase order, check its lines and resolve a customer question in one workflow. A recorded approval releases the agreed version to a demo ERP board.</p>
+    </div>
+  </section>
+
+  <section class="p-section p-proof" id="proof" aria-labelledby="proof-title">
+    <div class="p-shell">
+      <div class="p-section-head">
+        <p class="p-eyebrow">Watch it working</p>
+        <h2 id="proof-title">Follow the order from the PDF to the sales order</h2>
+        <p class="p-lead">Watch a customer&#39;s order move through a question, a recorded reply and approval. The result is one sales order on the demo ERP board.</p>
+      </div>
+      <section class="video-experience" aria-labelledby="highlight-heading">
+    <h3 id="highlight-heading">Highlight · 1:17</h3>
+    <div class="video-experience-layout">
+      <figure class="p-media">
+        <video id="highlight-video" controls preload="metadata" tabindex="0" poster="media/highlight-poster.png" data-duration="76.85" aria-labelledby="highlight-heading" width="1280" height="800">
+          <source src="media/highlight.webm" type="video/webm">
+          <track kind="captions" srclang="en" label="English" src="media/highlight.vtt">
+          Your browser cannot play this video. <a href="media/highlight.webm">Download highlight</a>.
+        </video>
+        <img class="video-print-poster" src="media/highlight-poster.png" alt="Highlight poster" width="1280" height="800">
+        <figcaption><a href="media/highlight.webm" download>Download highlight</a> · <a href="media/highlight-transcript.html">Read highlight transcript</a></figcaption>
+      </figure>
+    </div>
+  </section><section class="video-experience has-chapters" aria-labelledby="full-heading">
+    <h3 id="full-heading">Full walkthrough · 5:03</h3>
+    <div class="video-experience-layout">
+      <figure class="p-media">
+        <video id="full-video" controls preload="metadata" tabindex="0" poster="media/full-poster.png" data-duration="303.2" aria-labelledby="full-heading" width="1280" height="800">
+          <source src="media/full.webm" type="video/webm">
+          <track kind="captions" srclang="en" label="English" src="media/full.vtt">
+          <track kind="chapters" srclang="en" label="Chapters" src="media/full-chapters.vtt">
+          Your browser cannot play this video. <a href="media/full.webm">Download full walkthrough</a>.
+        </video>
+        <img class="video-print-poster" src="media/full-poster.png" alt="Full walkthrough poster" width="1280" height="800">
+        <figcaption><a href="media/full.webm" download>Download full walkthrough</a> · <a href="media/full-transcript.html">Read full walkthrough transcript</a></figcaption>
+      </figure><nav aria-label="Full walkthrough chapters">
+      <ol class="video-chapters"><li><button type="button" data-video-chapter="full-video" data-start="26.28" aria-controls="full-video"><span>0:26</span> Read and check the purchase order</button></li><li><button type="button" data-video-chapter="full-video" data-start="64.68" aria-controls="full-video"><span>1:04</span> Resolve the customer question</button></li><li><button type="button" data-video-chapter="full-video" data-start="133.6" aria-controls="full-video"><span>2:13</span> Record the customer&#39;s choice</button></li><li><button type="button" data-video-chapter="full-video" data-start="245.88" aria-controls="full-video"><span>4:05</span> Approve the exact order version</button></li><li><button type="button" data-video-chapter="full-video" data-start="273.06" aria-controls="full-video"><span>4:33</span> Create one demo sales order</button></li></ol>
+    </nav>
+    </div>
+  </section>
+      <ul class="p-labels" id="proof-labels"><li>Synthetic data</li><li>Simulated email</li><li>Simulated ERP</li></ul>
+      <p><a href="#screens">Explore the workflow screens</a></p>
+    </div>
+  </section>
+
+  <section class="p-section" id="how" aria-labelledby="how-title">
+    <div class="p-shell">
+      <p class="p-eyebrow">How it works</p>
+      <h2 id="how-title">Keep the order moving from capture to approval</h2>
+      <ol class="p-journey"><li>
+        <h3>Read and check the purchase order</h3>
+        <p>DocIQ, iMBrace&#39;s document reader, extracts the labelled values. The workflow matches item codes, checks prices and compares stock.</p>
+        <a href="#screens" data-p-screen="4">See screen 4</a>
+      </li><li>
+        <h3>Resolve the customer question</h3>
+        <p>One unclear line creates a question on the demo email board. The recorded reply selects an offered substitute and resumes the order.</p>
+        <a href="#screens" data-p-screen="7">See screen 7</a>
+      </li><li>
+        <h3>Approve the exact version</h3>
+        <p>An automated test records the order desk&#39;s decision in the visible form. The approval names the purchase order, customer and exact version.</p>
+        <a href="#screens" data-p-screen="12">See screen 12</a>
+      </li><li>
+        <h3>Create the sales order</h3>
+        <p>The workflow checks the decision and writes the agreed order to the demo ERP board. A resent purchase order is marked as a duplicate.</p>
+        <a href="#screens" data-p-screen="14">See screen 14</a>
+      </li></ol>
+    </div>
+  </section>
+
+
+
+
+  <section class="p-section p-business-case" id="business-case" aria-labelledby="business-case-title">
+    <div class="p-shell">
+      <div class="p-section-head">
+        <p class="p-eyebrow">Business case</p>
+        <h2 id="business-case-title">Keep the customer&#39;s answer and approval with the order</h2>
+        <p class="p-lead"><strong>Who it is for:</strong> Order-management and customer-service teams at distributors and wholesalers.</p>
+      </div>
+      <div class="p-business-grid">
+        <article class="p-business-card"><h3>What the workflow does</h3><p>The same workflow reads the purchase order, asks about an unclear line and waits for the recorded decisions. It then creates the approved sales order on the demo ERP board.</p></article>
+        <article class="p-business-card"><h3>Document capture in about half a minute</h3><p>The demo read purchase orders in 27.5–35.1 seconds.</p></article><article class="p-business-card"><h3>From approval to a demo order in seconds</h3><p>The demo ERP order appeared 5.8–7.7 seconds after the recorded decision.</p></article>
+      </div>
+      
+      <div class="p-business-cta">
+        <div class="p-business-cta-copy"><h3>Bring one purchase order to the conversation</h3><p>Start with a familiar order layout, item list and approval process. We can use them to shape a focused pilot.</p></div>
+        <a class="p-btn p-btn-primary" href="https://sg-corp.ingrammicro.com/about-us/contact" target="_blank" rel="noopener noreferrer" aria-label="Contact Ingram Micro Singapore (opens in a new tab)">Contact Ingram Micro Singapore</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-section p-next" id="next" aria-labelledby="next-title">
+    <div class="p-shell">
+      <p class="p-eyebrow">Next step</p>
+      <h2 id="next-title">Map your order desk&#39;s workflow</h2>
+      <p class="p-lead">Choose a purchase-order layout, sample item data and the approval steps you want to demonstrate. Then explore the build routes with your technical team.</p>
+      <div class="p-next-actions">
+        <a class="p-btn p-btn-primary" href="../../index.html">Compare all demos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-section" id="details" aria-labelledby="details-title">
+    <div class="p-shell">
+      <p class="p-eyebrow">Engineering and evidence</p>
+      <h2 id="details-title">Open only the detail you need</h2>
+      <div class="p-details-grid">
+        <details class="p-disclosure p-screens" id="screens">
+        <summary>Explore all 23 annotated screens</summary>
+        <div class="p-detail-body">
+          <p id="p-screen-status" role="status" aria-live="polite" class="p-eyebrow"></p>
+          <div class="p-screen" id="p-screen-view">
+            <figure class="p-screen-frame" id="p-screen-frame">
+              <img id="p-screen-image" alt="">
+              <span class="p-screen-hot" id="p-screen-hot" hidden aria-hidden="true"><span id="p-screen-hot-number">1</span></span>
+            </figure>
+            <section class="p-screen-copy">
+              <p class="p-eyebrow" id="p-screen-number"></p>
+              <h3 id="p-screen-title" tabindex="-1"></h3>
+              <p class="p-screen-business" id="p-screen-business"></p>
+              <ul class="p-labels" id="p-screen-labels"></ul>
+              <details class="p-screen-raw"><summary>Screen detail and evidence</summary><p id="p-screen-caption"></p><p id="p-screen-evidence"></p></details>
+              <p><a id="p-screen-original" href="">Open the original image</a></p>
+              <div class="p-screen-controls">
+                <button class="p-btn p-btn-secondary" type="button" id="p-screen-prev">Previous</button>
+                <button class="p-btn p-btn-primary" type="button" id="p-screen-next">Next</button>
+              </div>
+            </section>
+          </div>
+        </div>
+      </details>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="p-foot">
+  <div class="p-shell">
+    <p>Ingram Micro · Built on iMBrace · Fictional companies and data. Questions and sales orders land on demo email and ERP boards.</p>
+    <p><a href="../../index.html">Return to the iMBrace demo study</a></p>
+  </div>
+</footer>
+<script type="application/json" id="presentation-data">{"steps":[{"src":"img/01-01-the-po.png","title":"The customer's purchase order: three lines, in the hotel group's own item codes.","caption":"Sunrise Hotels Group's PO SHG-77031 (synthetic): line 1 SH-AM-SHP shampoo x 5000 at 2.50, line 2 SH-AM-CND conditioner x 5000 at 2.80, line 3 SH-TWL-01 hand towels x 200 at 45.00, with its line count and order total. This is the document, shown as it was rendered; the next screens are iMBrace.","business":"The order desk's starting point: a PDF in someone else's codes.","labels":["Synthetic document (pilots/pa3/data/PO-5002.pdf), shown outside iMBrace"],"evidence":[],"hotspot":null},{"src":"img/02-02-drop-zone.png","title":"Drop the PO into DocIQ; it picks the document type itself.","caption":"DocIQ > Document Boards: \"Drop documents here — AI picks the model\". The PO was dropped here; the board list, searched for \"Customer Purchase\", shows the board DocIQ chose, \"[Ingram AI Demo] Customer Purch…\", and \"Last document came in 2 min ago\".","business":"Nobody sorts the post or re-types the order.","labels":["Recorded live on cloud.imbrace.co","Synthetic data"],"evidence":[],"hotspot":{"x":272,"y":348,"w":1104,"h":76}},{"src":"img/03-03-watch-processing-log.png","title":"Watch it happen: DocIQ logs the file, the model it chose and the board.","caption":"DocIQ > Processing Logs, newest first: the PO just dropped, PO-5002.pdf (top row), \"Saved to [Ingram AI Demo] Customer Purchase Orders\", with the Document Model DocIQ chose (\"[Ingram AI Demo] Customer Purchase Order\") at 07:52. The rows below are earlier test runs.","business":"Every document is accounted for: what it was, and where it went.","labels":["Recorded live on cloud.imbrace.co","Synthetic data"],"evidence":[],"hotspot":{"x":238,"y":201,"w":1172,"h":112}},{"src":"img/04-04-po-waiting.png","title":"Read, checked and mapped in about 30 seconds; the whole order waits for one answer.","caption":"Customer Purchase Orders, \"Current\" view (Status does not contain Archived): SHG-77031 from Sunrise Hotels Group Ltd is \"Waiting for the customer\". Its Order lines start \"1. SH-AM-SHP Shampoo 30ml a…\", in the customer's own code; the next screens show why it waits.","business":"Nothing is ordered while a line is unclear: the whole order is held.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Mapping and checks built on iMBrace with FlowOps"],"evidence":[],"hotspot":null},{"src":"img/05-05-po-record-confidence.png","title":"What DocIQ read, and how sure it was: every value.","caption":"The PO's record (Open): \"AI filled N properties\". Each value read by AI shows DocIQ's own confidence, e.g. Sunrise Hotels Group Ltd at 100%. The flow acts only on values DocIQ marks as read with confidence, or on short quantities whose quantity x unit price equals the printed line amount, and only when the lines add up to the printed order total. Status: \"Waiting for the customer\".","business":"The order desk sees what the AI read and how sure it was; unsure reads go to a person.","labels":["Recorded live on cloud.imbrace.co","Synthetic data"],"evidence":[],"hotspot":{"x":1083,"y":322,"w":298,"h":97}},{"src":"img/06-06-question.png","title":"The question, as the email would read: one line, lettered options.","caption":"Questions to Customers (simulated email), filtered to Status is not Archived: \"… Line 3 (SH-TWL-01 Hand towel, hotel grade, white, quantity 200): we have 0 in stock. Reply with A, B or C: A) send MF-TWL-HT2 Hand towel, premium hotel grade, white at HKD 52.00 each instead; B) backorder MF-TWL-HT …; C) remove line 3.\"","business":"One clear question instead of a phone call.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Simulated: nothing is emailed or sent to a real ERP"],"evidence":[],"hotspot":{"x":1103,"y":166,"w":341,"h":204}},{"src":"img/07-07-watch-run-paused.png","title":"Watch it happen: one run read, checked and mapped the PO, and is waiting.","caption":"FlowOps, the run of \"[Ingram AI Demo] Process Customer Purchase Orders\" (a Board Automation): steps 11–13 read the master data, then the code step \"Check DocIQ's confidence and the total, find the customer, map each line, price, stock, duplicates\" (selected; its Output starts with the customer, CUST-200, Sunrise Hotels Group Ltd). The banner says \"Flow Run is paused\" (started today, 7:52 AM): it waits for the customer's reply to the question on the last screen.","business":"Every step is in one run anyone can open, and it stops where a person is needed.","labels":["Recorded live on cloud.imbrace.co","Mapping and checks built on iMBrace with FlowOps"],"evidence":[],"hotspot":{"x":612,"y":815,"w":330,"h":60}},{"src":"img/08-08-reply-typed.png","title":"The customer's reply, typed into the replies board.","caption":"Customer Replies (simulated email) > +: PO number SHG-77031, From procurement@sunrise-hotels.example, Reply \"Hi, thanks for checking. Please send the premium hand towels instead for line 3, same quantity. Regards, Procurement\", Note \"Typed on screen by Claude (automated test), acting as the customer\". In a real deployment the email inbox adds this record; SAVE adds it here.","business":"The answer comes back as one record.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Simulated: nothing is emailed or sent to a real ERP","Typed on screen by Claude, acting as the customer (one demo account)"],"evidence":[],"hotspot":{"x":324,"y":129,"w":792,"h":520}},{"src":"img/09-09-reply-used.png","title":"The reply is used once, to resume the run that asked.","caption":"Customer Replies: the reply typed in the last screen, its Outcome \"Used (2026-11-05 07:58 SGT): the waiting order run for PO SHG-77031 resumed with this reply\", Status Used. A reply is used once.","business":"The answer reaches the order that asked, and nothing else.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Simulated: nothing is emailed or sent to a real ERP","Typed on screen by Claude, acting as the customer (one demo account)"],"evidence":[],"hotspot":{"x":968,"y":166,"w":341,"h":64}},{"src":"img/10-10-reply-read.png","title":"The Order Desk Assistant reads the reply; code accepts only an offered option.","caption":"Questions to Customers: the question is \"Answered\", and its Reading says \"[Read by the Order Desk Assistant (AI), checked in code] … Line 3: option A (send MF-TWL-HT2 Hand towel, premium hotel grade, white at HKD 52.00 each instead), from \"Please send the premium hand towels instead for line 3, same quantity.\": accepted (an offered option)\".","business":"The AI reads the meaning; the rules decide what it may change.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Mapping and checks built on iMBrace with FlowOps"],"evidence":[],"hotspot":{"x":1068,"y":166,"w":341,"h":164}},{"src":"img/11-11-watch-same-run.png","title":"Watch it happen: the same run picked up where it stopped, and waits again.","caption":"The same FlowOps run (the banner shows the same run id and start time, 7:52 AM): after the wait come \"Read the reply?\", \"Read the customer's reply (Ord…\" (the Order Desk Assistant, an AI agent) and \"Accept only an offered option\" (code; selected, its Output: resolved, line 3, code \"A\", sku \"MF-TWL-HT2\"), then the reading is written back. The banner still says \"Flow Run is paused\": the run now waits for the order desk (next screens).","business":"One order, one run, from the document to the decision.","labels":["Recorded live on cloud.imbrace.co","Mapping and checks built on iMBrace with FlowOps"],"evidence":[],"hotspot":{"x":208,"y":286,"w":392,"h":56}},{"src":"img/12-12-decision-typed.png","title":"The order desk approves one version of the order, typed into the decisions board.","caption":"Order Desk Decisions > +: PO number SHG-77031, Customer Sunrise Hotels Group Ltd, Order version d34e0192806c (copied from the PO record), Decision Approve, and a note saying who typed it. SAVE adds the record.","business":"An approval names exactly what was approved.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Typed on screen by Claude, acting as the order desk (one demo account)"],"evidence":[],"hotspot":{"x":324,"y":129,"w":792,"h":520}},{"src":"img/13-13-decision-applied.png","title":"The decision is checked and applied once.","caption":"Order Desk Decisions: the decision just typed (Order version d34e0192806c, Approve), with its Outcome \"Applied (2026-11-05 08:01 SGT): approved order version d34e0192806c; the held run for PO SHG-77031 resumed\".","business":"Who approved which version, and when, is a record.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Typed on screen by Claude, acting as the order desk (one demo account)"],"evidence":[],"hotspot":{"x":1068,"y":166,"w":341,"h":84}},{"src":"img/14-14-sales-order.png","title":"One sales order (simulated ERP).","caption":"ERP Sales Orders (simulated): External ID CUST-200|SHG77031 (customer + PO number), Sunrise Hotels Group Ltd, SHG-77031, \"Pending fulfilment (sim…\". Lines: MF-SHM-30 x 5000 at HKD 2.50 (contract), MF-CON-30 x 5000 at HKD 2.80 (list), MF-TWL-HT2 x 200 at HKD 52.00 by the customer's reply (option A); Total HKD 36,900.00; Delivery date asked for: 2026-11-10.","business":"What reaches the ERP is the version the order desk approved, once.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Simulated: nothing is emailed or sent to a real ERP","Typed on screen by Claude, acting as the order desk (one demo account)"],"evidence":[],"hotspot":{"x":1103,"y":166,"w":341,"h":224}},{"src":"img/15-15-four-lines.png","title":"A PO with more lines than the model reads goes to a person.","caption":"Northwind's PO NWR-PO-26-0455, opened from the board: Status \"Needs a person\"; Issues \"DocIQ was not sure of: Line count; the PO has…\"; Order lines, Order version and Sales order are Empty, so nothing was mapped or ordered. This PO has four lines; the Document Model reads three.","business":"Nothing is cut short or guessed: an order the model can't read whole goes to a person.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Mapping and checks built on iMBrace with FlowOps"],"evidence":[],"hotspot":{"x":918,"y":430,"w":470,"h":176}},{"src":"img/16-16-duplicate.png","title":"A resent PO is stopped: no second order.","caption":"Customer Purchase Orders, \"Current\" view: Northwind's PO NWR-PO-26-0412 is \"Ordered\", with its order lines (put through first, out of shot, by Claude through the API and MCP). The same PO dropped in again (the \"RESENT\" copy) is \"Duplicate\", Issues \"Duplicate: NWR-PO-26-0412 from Nort…\", with no order lines. Read through the API at the same moment: still one sales order for this PO.","business":"No customer is invoiced twice for one order.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Mapping and checks built on iMBrace with FlowOps","The first Northwind order was put through by Claude through the API and MCP (one demo account)"],"evidence":[],"hotspot":{"x":272,"y":553,"w":1104,"h":74}},{"src":"img/17-17-customer-terms.png","title":"How it's built: the customers' own item codes and contract prices are records.","caption":"Customer Item Terms in DataIQ: each customer's own code for our item (CUST-200, Sunrise Hotels, calls our MF-TWL-HT \"SH-TWL-01\") and the contract price where one is agreed (2.50 for its shampoo, SH-AM-SHP). The mapping reads this board, the Item Master and Customer Accounts on every run.","business":"The order desk keeps the rules as data; nobody edits a flow.","labels":["Recorded live on cloud.imbrace.co","Synthetic data"],"evidence":[],"hotspot":{"x":588,"y":186,"w":173,"h":32}},{"src":"img/18-18-automation.png","title":"How it's wired: a board automation starts the run when DocIQ adds a PO.","caption":"Customer Purchase Orders > ⚙ > Automation: \"When DocIQ Reads a Purchase Order\", Triggered Condition \"When a record is created\", Triggered Workflow \"[Ingram AI Demo] Process Customer Purchase Orders\". The replies and decisions boards each have one too.","business":"The work starts the moment the document is read.","labels":["Recorded live on cloud.imbrace.co"],"evidence":[],"hotspot":{"x":640,"y":436,"w":496,"h":152}},{"src":"img/19-19-document-model.png","title":"How it's built: a DocIQ Document Model with one field per value, line by line.","caption":"DocIQ > Document Models > [Ingram AI Demo] Custome…: Customer name, Buyer email, PO number, PO date, Delivery date, Currency, Line count, then Line 1 customer SKU, Line 1 description, Line 1 quantity, Line 1 unit price, Line 2 customer SKU. Below this screen come lines 2 and 3, each line's amount and the Order total (23 attributes, read through the API). DocIQ has no table field, so order lines are numbered fields: that is why the model reads three lines.","business":"Teach iMBrace a new document type by listing what to read.","labels":["Recorded live on cloud.imbrace.co"],"evidence":[],"hotspot":{"x":272,"y":522,"w":410,"h":276}},{"src":"img/20-20-netsuite-piece.png","title":"How it would reach a real ERP: iMBrace's NetSuite piece (not connected here).","caption":"FlowOps > Connections > New Connection, searched for NetSuite: the piece is in iMBrace's library. Read through MCP without connecting, its actions are Get Vendor, Get Customer, Run SuiteQL Query and Custom API Call; there is no sales-order action, so a real deployment would create the order through the Custom API Call (not tested here). The organisation's own connections behind the dialog are hidden.","business":"The ERP piece is in the library; the sales-order call itself would still need building and testing.","labels":["Recorded live on cloud.imbrace.co","Simulated: no NetSuite connection is made","The organisation's connections are masked"],"evidence":[],"hotspot":{"x":499,"y":221,"w":150,"h":150}},{"src":"img/21-volume-retained.png","title":"The structured cohort stopped safely before mapping or ordering.","caption":"The retained Current view shows the synthetic structured cohort in Needs a person. All 200 exact records linked one-to-one to successful runs in 91.4 seconds; without DocIQ confidence, zero were mapped, paused, approved or written.","business":"Fail-closed automation was exercised at volume without turning it into a document-throughput claim.","labels":["Recorded live on cloud.imbrace.co","Synthetic structured records","Volume scope excludes DocIQ and ERP"],"evidence":[],"hotspot":null},{"src":"img/22-language-decision-form.png","title":"One Bahasa Melayu PO reached a visible exact-version decision.","caption":"One synthetic bilingual PO reached the order-desk hold in 29.3 seconds. The visible form names the PO, customer and held version; the automated test acts as the order desk. This single document is not an accuracy sample.","business":"The sampled language route keeps the approval boundary visible and separate from scale evidence.","labels":["Recorded live on cloud.imbrace.co","One synthetic Bahasa Melayu PO","Automated test acting as the order desk"],"evidence":[],"hotspot":null},{"src":"img/23-language-simulated-order.png","title":"The approved version created one row on the simulated ERP board.","caption":"The save-to-apply observation took 4.0 seconds and produced one pending-fulfilment row on the labelled simulated ERP board. No NetSuite connection was called, and no native ERP result is claimed.","business":"The decision control is visible; native ERP integration remains untested.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Simulated ERP only"],"evidence":[],"hotspot":null}]}</script>
+<script>
+(function () {
+  var node = document.getElementById('presentation-data');
+  if (!node) return;
+  var data = JSON.parse(node.textContent), steps = data.steps, pos = 0;
+  var image = document.getElementById('p-screen-image');
+  var frame = document.getElementById('p-screen-frame');
+  var hot = document.getElementById('p-screen-hot');
+  var hotNumber = document.getElementById('p-screen-hot-number');
+  var number = document.getElementById('p-screen-number');
+  var title = document.getElementById('p-screen-title');
+  var business = document.getElementById('p-screen-business');
+  var caption = document.getElementById('p-screen-caption');
+  var labels = document.getElementById('p-screen-labels');
+  var evidence = document.getElementById('p-screen-evidence');
+  var original = document.getElementById('p-screen-original');
+  var previous = document.getElementById('p-screen-prev');
+  var next = document.getElementById('p-screen-next');
+  var status = document.getElementById('p-screen-status');
+
+  function place() {
+    var step = steps[pos], h = step.hotspot, nw = image.naturalWidth, nh = image.naturalHeight;
+    if (!h || !nw || !nh) { hot.hidden = true; return; }
+    hot.style.left = (100 * h.x / nw) + '%';
+    hot.style.top = (100 * h.y / nh) + '%';
+    hot.style.width = (100 * h.w / nw) + '%';
+    hot.style.height = (100 * h.h / nh) + '%';
+    hot.hidden = false;
+  }
+  function addTextList(target, values) {
+    target.replaceChildren.apply(target, values.map(function (value) {
+      var item = document.createElement('li'); item.textContent = value; return item;
+    }));
+    target.hidden = !values.length;
+  }
+  function render(moveFocus) {
+    var step = steps[pos];
+    number.textContent = 'Screen ' + (pos + 1) + ' of ' + steps.length;
+    title.textContent = step.title;
+    business.textContent = step.business || step.caption;
+    caption.textContent = step.caption;
+    evidence.textContent = step.evidence.length ? 'Evidence: ' + step.evidence.join(', ') : '';
+    evidence.hidden = !step.evidence.length;
+    addTextList(labels, step.labels);
+    original.href = step.src;
+    original.setAttribute('aria-label', 'Open original image for screen ' + (pos + 1) + ': ' + step.title);
+    previous.disabled = pos === 0;
+    next.disabled = pos === steps.length - 1;
+    hotNumber.textContent = String(pos + 1);
+    hot.hidden = true;
+    image.alt = step.title + '. ' + (step.business || step.caption);
+    if (image.getAttribute('src') === step.src && image.complete) place(); else image.src = step.src;
+    status.textContent = 'Screen ' + (pos + 1) + ': ' + step.title;
+    if (moveFocus) title.focus({ preventScroll: true });
+  }
+  image.addEventListener('load', place);
+  previous.addEventListener('click', function () { if (pos > 0) { pos -= 1; render(true); } });
+  next.addEventListener('click', function () { if (pos < steps.length - 1) { pos += 1; render(true); } });
+  document.querySelectorAll('[data-p-screen]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      var details = document.getElementById('screens');
+      pos = Math.max(0, Math.min(steps.length - 1, Number(link.getAttribute('data-p-screen')) - 1));
+      for (var current = details; current; current = current.parentElement) {
+        if (current.tagName === 'DETAILS') current.open = true;
+      }
+      render(false);
+    });
+  });
+  function openLinkedDetails() {
+    var target = document.getElementById(location.hash.slice(1));
+    if (!target) return;
+    for (var current = target; current; current = current.parentElement) {
+      if (current.tagName === 'DETAILS') current.open = true;
+    }
+  }
+  window.addEventListener('hashchange', openLinkedDetails);
+  openLinkedDetails();
+  var printAppendices = ['build', 'tested'].map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  var printState = [];
+  window.addEventListener('beforeprint', function () {
+    printState = printAppendices.map(function (details) { return details.open; });
+    printAppendices.forEach(function (details) { details.open = true; });
+  });
+  window.addEventListener('afterprint', function () {
+    printAppendices.forEach(function (details, i) { details.open = Boolean(printState[i]); });
+  });
+  render(false);
+})();
+</script>
+<script id="video-experience-script">
+(function () {
+  document.querySelectorAll('[data-video-chapter]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var video = document.getElementById(button.getAttribute('data-video-chapter'));
+      var seconds = Number(button.getAttribute('data-start'));
+      if (!video || !Number.isFinite(seconds) || seconds < 0 || seconds >= Number(video.getAttribute('data-duration'))) return;
+      video.pause();
+      video.currentTime = seconds;
+      video.focus();
+    });
+  });
+})();
+</script>
+</body>
+</html>

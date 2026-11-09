@@ -1,0 +1,73 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:21.560
+Ask the policy assistant a question about the fictional HR policies.
+
+2
+00:00:21.600 --> 00:00:38.240
+The question starts from an older leave rule.
+
+3
+00:00:38.240 --> 00:00:44.720
+The answer cites the current policy: five days, by 31 March.
+
+4
+00:00:45.880 --> 00:00:57.640
+The answer draws on HR's policy library.
+
+5
+00:00:57.680 --> 00:01:03.640
+The library keeps current and superseded policy versions labelled.
+
+6
+00:01:04.400 --> 00:02:22.640
+Ask a visitor-policy question that the documents do not cover.
+
+7
+00:02:22.640 --> 00:02:29.760
+The assistant records the general question for HR.
+
+8
+00:02:30.160 --> 00:03:05.320
+Follow the question into its FlowOps workflow record.
+
+9
+00:03:05.360 --> 00:03:11.100
+The HR queue keeps the general question and its reference.
+
+10
+00:03:11.100 --> 00:03:21.040
+The recorded visitor question is waiting in the HR queue.
+
+11
+00:03:21.080 --> 00:03:25.080
+An automated test records HR's answer and marks it approved.
+
+12
+00:03:25.800 --> 00:03:43.800
+Board automation copies the approved answer to the assistant's answer board.
+
+13
+00:03:44.600 --> 00:04:36.600
+Ask the same visitor question again.
+
+14
+00:04:36.600 --> 00:04:42.600
+The recorded reply gives HR's approved answer with its reference.
+
+15
+00:04:42.600 --> 00:04:58.440
+An automated test withdraws HR's answer.
+
+16
+00:04:58.480 --> 00:05:03.120
+The record keeps the withdrawn text in its history.
+
+17
+00:05:03.840 --> 00:06:11.960
+Ask the same question after the withdrawal.
+
+18
+00:06:11.960 --> 00:06:17.440
+Follow the question through a fresh search and HR queue entry.

@@ -1,0 +1,37 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:10.500
+Typed by Claude (automated test) as the customer: enters repair details.
+
+2
+00:00:10.500 --> 00:00:19.800
+The workflow offers available slots and waits for a choice.
+
+3
+00:00:19.800 --> 00:00:27.500
+Typed by Claude (automated test) as the customer: selects B.
+
+4
+00:00:27.500 --> 00:00:36.620
+The same workflow books the chosen slot and confirms it in chat.
+
+5
+00:00:36.620 --> 00:00:44.620
+The same workflow waits for the manager's decision.
+
+6
+00:00:44.620 --> 00:00:54.153
+The decision names the enquiry and its exact booking version.
+
+7
+00:00:54.153 --> 00:01:03.353
+Typed by Claude (automated test) as the service manager: records approval.
+
+8
+00:01:03.353 --> 00:01:04.120
+Saving checks the booking version and resumes the waiting workflow.
+
+9
+00:01:04.120 --> 00:01:10.753
+The approved fleet booking is confirmed in the same chat.

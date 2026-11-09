@@ -1,0 +1,121 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:08.280
+A fictional customer opens the service chat.
+
+2
+00:00:08.280 --> 00:00:34.760
+Typed by Claude (automated test) as the customer: enters repair details.
+
+3
+00:00:34.760 --> 00:00:45.880
+The workflow offers available slots and waits for a choice.
+
+4
+00:00:45.880 --> 00:01:02.680
+The booking workflow keeps the offered slots while it waits.
+
+5
+00:01:02.680 --> 00:01:14.080
+The same workflow waits with its offered slots.
+
+6
+00:01:14.080 --> 00:01:17.480
+Return to the same service conversation.
+
+7
+00:01:17.480 --> 00:01:25.640
+Typed by Claude (automated test) as the customer: selects B.
+
+8
+00:01:25.640 --> 00:01:36.360
+The same workflow books the chosen slot and confirms it in chat.
+
+9
+00:01:36.360 --> 00:01:54.600
+The customer's choice resumes the waiting booking workflow.
+
+10
+00:01:54.600 --> 00:02:05.760
+The workflow checks capacity before writing the booking.
+
+11
+00:02:05.760 --> 00:02:18.120
+Find this enquiry on DataIQ, iMBrace's records boards.
+
+12
+00:02:18.120 --> 00:02:24.700
+The chosen slot becomes a booking on the demo calendar board.
+
+13
+00:02:24.700 --> 00:02:50.367
+Typed by Claude (automated test) as the customer: requests twelve laptop setups.
+
+14
+00:02:50.367 --> 00:02:58.167
+The workflow offers available fleet bays in the same chat.
+
+15
+00:02:58.167 --> 00:03:06.767
+Typed by Claude (automated test) as the customer: chooses an offered bay.
+
+16
+00:03:06.767 --> 00:03:24.167
+The fleet booking waits for the manager's decision.
+
+17
+00:03:24.167 --> 00:03:47.633
+Open the workflow behind this fleet booking.
+
+18
+00:03:47.633 --> 00:03:59.633
+The same workflow waits for the manager's decision.
+
+19
+00:03:59.633 --> 00:04:20.367
+Find the fleet enquiry on the records board.
+
+20
+00:04:20.367 --> 00:04:25.033
+The enquiry is waiting for its fleet booking decision.
+
+21
+00:04:25.033 --> 00:04:32.767
+The booking version identifies the enquiry, customer, devices and chosen bay.
+
+22
+00:04:32.767 --> 00:04:51.700
+Open the board for fleet booking decisions.
+
+23
+00:04:51.700 --> 00:04:57.100
+Typed by Claude (automated test) as the service manager: opens a decision.
+
+24
+00:04:57.100 --> 00:05:08.033
+The decision names the enquiry and its exact booking version.
+
+25
+00:05:08.033 --> 00:05:17.233
+Typed by Claude (automated test) as the service manager: records approval.
+
+26
+00:05:17.233 --> 00:05:38.567
+Saving checks the booking version and resumes the waiting workflow.
+
+27
+00:05:38.567 --> 00:06:01.567
+Return to the booking workflow after the decision.
+
+28
+00:06:01.567 --> 00:06:12.967
+The workflow checks capacity and writes the approved booking.
+
+29
+00:06:12.967 --> 00:06:17.367
+Return to the same service conversation.
+
+30
+00:06:17.367 --> 00:06:24.400
+The approved fleet booking is confirmed in the same chat.

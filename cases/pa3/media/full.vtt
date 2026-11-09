@@ -1,0 +1,85 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:14.680
+The fictional customer's three-line purchase order shows item codes, quantities and prices.
+
+2
+00:00:26.040 --> 00:00:32.000
+DocIQ, iMBrace's document reader, selects the purchase-order model for this PDF.
+
+3
+00:00:32.000 --> 00:00:53.520
+Each value is read, then matched with item codes, prices and available stock.
+
+4
+00:01:04.440 --> 00:01:10.720
+One unclear line pauses the order and creates a question for the customer.
+
+5
+00:01:28.760 --> 00:01:38.400
+The demo email board holds the question and three choices for the customer.
+
+6
+00:01:55.520 --> 00:02:00.480
+An automated test enters the customer's reply in the visible form.
+
+7
+00:02:00.480 --> 00:02:12.160
+The recorded reply selects the offered substitute and identifies the automated customer role.
+
+8
+00:02:12.160 --> 00:02:15.840
+Saving the reply resumes the waiting order.
+
+9
+00:02:15.880 --> 00:02:47.100
+The selected choice is checked before the order desk's approval.
+
+10
+00:02:47.100 --> 00:02:53.420
+The order waits for the order desk's decision.
+
+11
+00:02:53.420 --> 00:03:03.220
+The workflow checks that the reply matches an offered substitute.
+
+12
+00:03:03.220 --> 00:03:13.940
+The recorded reply selects premium towels at HKD 52 each.
+
+13
+00:03:25.860 --> 00:03:32.420
+A resent purchase order arrives while the original waits for approval.
+
+14
+00:03:33.180 --> 00:03:49.820
+The decisions board brings the current order into view.
+
+15
+00:03:49.820 --> 00:03:54.700
+An automated test adds the order desk's decision in the visible form.
+
+16
+00:03:54.740 --> 00:04:08.820
+The decision approves this purchase order, customer and exact version.
+
+17
+00:04:08.820 --> 00:04:12.220
+Saving the decision resumes the held order.
+
+18
+00:04:12.260 --> 00:04:15.220
+The workflow checks the order against its approval before creating the sales order.
+
+19
+00:04:15.940 --> 00:04:32.820
+The demo ERP board brings the new sales order into view.
+
+20
+00:04:32.860 --> 00:04:42.940
+The approved order becomes one sales order on the demo ERP board.
+
+21
+00:04:53.940 --> 00:05:00.180
+The resent purchase order is marked duplicate, keeping the original sales order.

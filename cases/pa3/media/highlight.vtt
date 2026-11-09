@@ -1,0 +1,41 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:10.500
+The fictional customer's three-line purchase order shows item codes, quantities and prices.
+
+2
+00:00:10.500 --> 00:00:16.220
+DocIQ, iMBrace's document reader, selects the purchase-order model for this PDF.
+
+3
+00:00:16.220 --> 00:00:18.000
+Each value is read, then matched with item codes, prices and available stock.
+
+4
+00:00:18.000 --> 00:00:23.500
+One unclear line pauses the order and creates a question for the customer.
+
+5
+00:00:23.500 --> 00:00:32.400
+The demo email board holds the question and three choices for the customer.
+
+6
+00:00:32.400 --> 00:00:43.920
+The recorded reply selects the offered substitute and identifies the automated customer role.
+
+7
+00:00:43.920 --> 00:00:47.100
+Saving the reply resumes the waiting order.
+
+8
+00:00:47.100 --> 00:01:01.020
+The decision approves this purchase order, customer and exact version.
+
+9
+00:01:01.020 --> 00:01:03.920
+Saving the decision resumes the held order.
+
+10
+00:01:03.920 --> 00:01:13.800
+The approved order becomes one sales order on the demo ERP board.

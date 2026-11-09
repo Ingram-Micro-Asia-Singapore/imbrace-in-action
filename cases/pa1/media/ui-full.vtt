@@ -1,0 +1,53 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:07.560
+The invoice board keeps the routing result beside the document values.
+
+2
+00:00:07.600 --> 00:00:12.320
+The synthetic invoice shows Posted on the demo route with clear checks.
+
+3
+00:00:13.680 --> 00:00:17.920
+The claim board also keeps its routing result in view.
+
+4
+00:00:19.280 --> 00:00:23.320
+The supplier board holds fictional suppliers imported through the visible Import control.
+
+5
+00:00:24.720 --> 00:00:28.960
+Open purchase orders provide the supplier and amount for invoice checks.
+
+6
+00:00:30.400 --> 00:00:33.300
+The policy board supplies the reference data for claim checks.
+
+7
+00:00:33.300 --> 00:00:38.340
+The imported workflow templates are published and enabled in FlowOps, iMBrace's workflow builder.
+
+8
+00:00:39.780 --> 00:00:44.340
+Creating an invoice record starts its check-and-route workflow.
+
+9
+00:00:45.780 --> 00:00:49.940
+The claim board uses its own record-created trigger for the check workflow.
+
+10
+00:00:51.860 --> 00:00:56.180
+The decisions board is linked to the separate decision workflow.
+
+11
+00:00:58.100 --> 00:01:02.340
+The synthetic invoice's extracted values are available in DocIQ for confirmation.
+
+12
+00:01:02.340 --> 00:01:07.100
+The invoice board shows a successful check and simulated posting.
+
+13
+00:01:08.460 --> 00:01:13.300
+The demo finance outbox holds the invoice posting and its purchase-order reference.

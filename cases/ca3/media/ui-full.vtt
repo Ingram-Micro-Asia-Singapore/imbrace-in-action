@@ -1,0 +1,113 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:11.660
+Open the form for a new sales records board.
+
+2
+00:00:11.660 --> 00:00:19.260
+Review the board name and purpose, then return to the existing board.
+
+3
+00:00:23.940 --> 00:00:33.540
+Open the existing board and its field settings.
+
+4
+00:00:33.580 --> 00:00:39.660
+Each sales field has a name and a data type.
+
+5
+00:00:47.380 --> 00:01:04.140
+Open CSV import to bring sales records into the board.
+
+6
+00:01:04.180 --> 00:01:12.180
+The import wizard selects the sales board.
+
+7
+00:01:12.220 --> 00:01:21.220
+Map each CSV column to its matching board field.
+
+8
+00:01:21.260 --> 00:01:29.900
+Review the import confirmation, then return to the existing records.
+
+9
+00:01:31.100 --> 00:01:36.260
+The fictional sales records keep revenue, cost and margin together.
+
+10
+00:01:42.340 --> 00:01:49.500
+Open the workflow template import dialog.
+
+11
+00:01:49.540 --> 00:01:56.540
+The dialog checks the selected file before import.
+
+12
+00:01:56.580 --> 00:02:01.820
+This import route asks for a FlowOps template file.
+
+13
+00:02:01.820 --> 00:02:12.620
+Review the prepared template, then return to the existing workflow.
+
+14
+00:02:20.100 --> 00:02:29.460
+The workflow reads the board and returns its records as JSON.
+
+15
+00:02:29.460 --> 00:02:36.420
+Flow Settings connects the workflow to the analyst.
+
+16
+00:02:36.460 --> 00:02:41.400
+The workflow accepts a question through its POST method.
+
+17
+00:02:48.100 --> 00:03:17.020
+Explore the form for a general agent.
+
+18
+00:03:17.020 --> 00:03:27.060
+Review the analyst name and description, then open the existing analyst.
+
+19
+00:03:51.300 --> 00:04:01.940
+The existing analyst shows its selected model and provider.
+
+20
+00:04:10.020 --> 00:04:19.180
+The core instructions connect the analyst to its sales workflow.
+
+21
+00:04:25.980 --> 00:04:36.140
+The analyst uses its workflow to read the sales board.
+
+22
+00:04:43.220 --> 00:04:51.860
+Chart support is enabled in the analyst settings.
+
+23
+00:05:46.380 --> 00:06:04.140
+Choose the sales analyst in the chat workspace.
+
+24
+00:06:04.140 --> 00:06:08.460
+The selected analyst is ready for a sales question.
+
+25
+00:06:08.460 --> 00:06:37.020
+Ask for East gross margin in a fresh conversation.
+
+26
+00:06:37.020 --> 00:06:47.100
+The answer gives East margin, its percentage and the revenue behind it.
+
+27
+00:06:47.140 --> 00:07:41.260
+The completed tool card links the answer to the sales workflow.
+
+28
+00:07:54.140 --> 00:08:03.100
+Compare the answer with East revenue and margin on the source board.

@@ -1,0 +1,81 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:11.800
+Compare five routes by audience, connection and where the key stays.
+
+2
+00:00:12.720 --> 00:00:46.080
+Staff reach the assistant through InsightsIQ, iMBrace's staff chat.
+
+3
+00:00:46.080 --> 00:00:52.320
+The staff chat returns a cited policy answer.
+
+4
+00:00:52.640 --> 00:01:20.400
+Visitors can reach the same assistant through its hosted chat link.
+
+5
+00:01:20.520 --> 00:01:24.920
+Hosted chat returns the same cited policy facts.
+
+6
+00:01:25.720 --> 00:01:55.720
+The fictional partner portal frames the hosted chat page.
+
+7
+00:01:55.800 --> 00:02:02.840
+The embedded hosted page opens inside the partner portal.
+
+8
+00:02:02.840 --> 00:02:18.720
+A sample server connects the portal to the assistant.
+
+9
+00:02:18.720 --> 00:02:26.400
+The server-backed portal returns the cited policy answer.
+
+10
+00:02:26.480 --> 00:02:34.500
+Compare the cited facts returned across the demo routes.
+
+11
+00:02:34.500 --> 00:02:35.300
+The recording opens the prototype portal route.
+
+12
+00:02:35.300 --> 00:02:53.860
+The fictional portal sends a question to a FlowOps workflow webhook.
+
+13
+00:02:53.860 --> 00:03:16.100
+The portal shows the answer beside its request details.
+
+14
+00:03:16.100 --> 00:03:46.020
+Open the workflow record behind that portal request.
+
+15
+00:03:46.020 --> 00:04:01.140
+The workflow shows the question passing through its steps.
+
+16
+00:04:01.140 --> 00:04:14.020
+The sample portal server keeps the assistant key away from the browser.
+
+17
+00:04:14.020 --> 00:04:31.460
+The order lookup asks for the matching email.
+
+18
+00:04:31.460 --> 00:04:53.260
+The matching email returns the fictional order status.
+
+19
+00:04:53.260 --> 00:05:21.540
+Open the workflow record behind the order lookup.
+
+20
+00:05:21.540 --> 00:05:31.300
+The skill matches the order number and email.

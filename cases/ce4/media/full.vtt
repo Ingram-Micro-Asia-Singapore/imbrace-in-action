@@ -1,0 +1,73 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:26.350
+Ask for a sourced view of a fictional customer.
+
+2
+00:00:26.400 --> 00:00:42.450
+Supply the email for this fictional customer.
+
+3
+00:00:42.450 --> 00:00:52.900
+The answer combines customer facts with a source beside each one.
+
+4
+00:00:53.800 --> 00:01:03.850
+Open the original customer record from the synthetic CRM export.
+
+5
+00:01:04.550 --> 00:01:11.550
+The synthetic mailbox export keeps its original address format.
+
+6
+00:01:12.500 --> 00:01:19.600
+Open the workflow that brings the source records together.
+
+7
+00:01:29.500 --> 00:01:33.450
+Follow the demo consolidation request into its workflow run.
+
+8
+00:01:33.500 --> 00:01:41.850
+Fixed rules gather, clean, match and link the source records.
+
+9
+00:01:42.600 --> 00:01:50.100
+The phone rule also requires the same full name.
+
+10
+00:01:50.850 --> 00:02:00.000
+The sourced customer views keep linked order totals alongside their facts.
+
+11
+00:02:00.750 --> 00:02:07.750
+The review board holds possible matches for a steward's decision.
+
+12
+00:02:07.800 --> 00:02:14.350
+A name-only possible match waits on the demo review board.
+
+13
+00:02:14.400 --> 00:02:26.900
+An automated test records a steward decision on the synthetic pair.
+
+14
+00:02:30.100 --> 00:02:38.600
+The demo decision applies while the other possible matches stay queued.
+
+15
+00:02:38.900 --> 00:03:06.650
+A demo chat visitor supplies an email as an unverified identity claim.
+
+16
+00:03:06.650 --> 00:03:12.450
+The chat answers the visitor's question while identity remains an unverified claim.
+
+17
+00:03:12.500 --> 00:03:27.500
+An automated test adds the chat visitor to its demo board through MCP.
+
+18
+00:03:28.900 --> 00:03:43.040
+The visitor's unverified identity claim stays separate from the sourced customer view.

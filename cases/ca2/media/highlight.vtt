@@ -1,0 +1,37 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:10.500
+Open a weekly-pack request for the synthetic sales data.
+
+2
+00:00:10.500 --> 00:00:20.000
+The workflow calculates figures, checks the summary and holds the pack for review.
+
+3
+00:00:20.000 --> 00:00:29.500
+The held pack keeps its summary and the exact version for review.
+
+4
+00:00:29.500 --> 00:00:29.860
+The held pack keeps its summary and the exact version for review.
+
+5
+00:00:29.860 --> 00:00:37.000
+Code calculates chart values and checks figures in the AI-written summary.
+
+6
+00:00:37.000 --> 00:00:42.040
+Open a decision for the exact pack version being reviewed.
+
+7
+00:00:42.040 --> 00:00:50.640
+Typed by Claude (automated test) as the sales manager: records this version's approval.
+
+8
+00:00:50.640 --> 00:00:53.500
+Save the decision with the pack version.
+
+9
+00:00:53.500 --> 00:01:01.600
+The approved version lands once on the demo email board.

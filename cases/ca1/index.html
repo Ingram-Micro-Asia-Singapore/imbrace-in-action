@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Explain unusual sales days with checked figures | Ingram Micro · iMBrace demos</title>
+<link rel="icon" href="../../brand/ingram-micro-logo.svg" type="image/svg+xml">
+<style>/* Ingram Micro brand tokens for the iMBrace study site, clickthroughs and video cards.
+   Colours are the "IM" theme of Ingram-template.pptx; the extra blues, the rust accent and the
+   type stack follow Ingram's own demo site (ingram-micro-asia-singapore.github.io/bob-in-action-v2).
+   System fonts only, so pages work offline. Light theme, as in the reference site. */
+:root {
+  --ink: #1E1F24;          /* body text (theme dk1) */
+  --black: #000000;
+  --paper: #FFFFFF;        /* cards, sidebar (lt1) */
+  --paper-soft: #F2F2F2;   /* page background (accent4) */
+  --rule: #EFEFEF;         /* dividers (lt2) */
+  --muted: #9B9EA1;        /* secondary text (folHlink) */
+  --blue: #0076D3;         /* primary brand blue (accent1, links) */
+  --blue-deep: #004B8E;    /* accent2, link labels */
+  --blue-dark: #00599F;
+  --blue-light: #4CB0FE;
+  --blue-pale: #C3E4FE;
+  --blue-graphic: #0077D4; /* large brand shapes */
+  --navy: #142037;         /* accent5, dark panels and title cards */
+  --grey: #A5A5A5;
+  --grey-light: #DBDBDB;
+  --example: #B93D0B;      /* rust: numbered call-outs, quotes, "example" markers */
+
+  --font-display: "Arial Black", Arial, sans-serif;           /* theme major font */
+  --font-heading: "Helvetica Neue", Arial, sans-serif;
+  --font-body: Arial, "Helvetica Neue", sans-serif;           /* theme minor font */
+  --font-mono: Consolas, "Courier New", monospace;
+}
+body { margin: 0; background: var(--paper-soft); color: var(--ink); font: 16px/1.6 var(--font-body); }
+a { color: var(--blue); }
+/* Uppercase, spaced label above a headline. */
+.eyebrow { font: 700 13px/1.4 var(--font-heading); letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
+/* Headlines are plain sentences that state one claim. */
+h1, .display { font: 900 clamp(32px, 5vw, 60px)/1.1 var(--font-heading); margin: .2em 0 .4em; }
+h2 { font: 700 clamp(22px, 2.6vw, 28px)/1.25 var(--font-heading); margin: 1.2em 0 .6em; }
+/* Section tag: small box with a blue rule on the left. */
+.tag { display: inline-block; padding: 4px 12px; background: var(--paper); border-left: 4px solid var(--blue); font: 700 14px/1.4 var(--font-heading); }
+.tag.is-example { border: 2px solid var(--example); border-left-width: 2px; color: var(--example); }
+/* Numbered call-out beside a figure. */
+.callout-n { display: inline-grid; place-items: center; width: 22px; height: 22px; border: 2px solid var(--example); font: 700 13px var(--font-heading); }
+/* Quote with evidence id. */
+blockquote { margin: 1em 0; padding: 0 0 0 16px; border-left: 4px solid var(--example); }
+blockquote cite { display: block; font: 13px var(--font-body); font-style: normal; color: var(--ink); }
+/* Video card: black frame, square blue play button, an honesty label in deep blue. */
+.video-card { background: var(--paper); }
+.video-card .frame { position: relative; aspect-ratio: 16 / 9; background: var(--black); }
+.video-card .play { position: absolute; inset: 0; margin: auto; width: 44px; height: 44px; background: var(--blue); }
+.video-card .label { color: var(--blue-deep); font-weight: 700; font-size: 14px; }
+
+/* Keep document tables readable within a printed page and disclosure margins. */
+@media print {
+  .case-document-v2.partner-rewrite-v3 .markdown-body table {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    font-size: 14px;
+    line-height: 1.45;
+  }
+  .case-document-v2.partner-rewrite-v3 .markdown-body details > table {
+    width: calc(100% - 48px);
+    max-width: calc(100% - 48px);
+  }
+  .case-document-v2.partner-rewrite-v3 .markdown-body th,
+  .case-document-v2.partner-rewrite-v3 .markdown-body td {
+    min-width: 0;
+    padding: 6px 8px;
+    overflow-wrap: anywhere;
+  }
+  .case-document-v2.partner-rewrite-v3 .markdown-body details > :last-child {
+    margin-bottom: 0;
+  }
+}</style>
+<style>
+*, *::before, *::after { box-sizing: border-box; }
+:root {
+  color-scheme: light dark;
+  --p-page: var(--paper-soft);
+  --p-surface: var(--paper);
+  --p-text: var(--ink);
+  --p-heading: var(--black);
+  --p-secondary: var(--blue-deep);
+  --p-link: var(--blue-deep);
+  --p-rule: var(--grey-light);
+  --p-control: var(--blue-deep);
+  --p-button: var(--blue-deep);
+  --p-button-text: var(--paper);
+  --p-focus: var(--blue-deep);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --p-page: var(--navy);
+    --p-surface: var(--ink);
+    --p-text: var(--paper);
+    --p-heading: var(--paper);
+    --p-secondary: var(--grey-light);
+    --p-link: var(--blue-light);
+    --p-rule: var(--grey);
+    --p-control: var(--blue-light);
+    --p-button: var(--blue-light);
+    --p-button-text: var(--navy);
+    --p-focus: var(--blue-light);
+  }
+}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; overflow-wrap: anywhere; background: var(--p-page); color: var(--p-text); font: 16px/1.6 var(--font-body); }
+img, video { max-width: 100%; }
+h1, h2, h3, p, ol, ul, figure { margin-top: 0; }
+h1, h2, h3 { color: var(--p-heading); }
+h1 { max-width: 18ch; font: 700 clamp(32px, 4vw, 48px)/1.1 var(--font-heading); }
+h2 { max-width: 28ch; font: 700 clamp(24px, 3vw, 32px)/1.25 var(--font-heading); }
+h3 { font: 700 20px/1.3 var(--font-heading); }
+p, li { max-width: 70ch; }
+a { color: var(--p-link); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 3px; }
+button, summary { font: inherit; }
+:focus-visible { outline: 3px solid var(--p-focus); outline-offset: 3px; }
+.p-skip { position: absolute; left: 16px; top: -96px; z-index: 20; padding: 16px 24px; background: var(--p-button); color: var(--p-button-text); font-weight: 700; }
+.p-skip:focus { top: 16px; }
+.p-shell { width: min(calc(100% - 64px), 1280px); margin-inline: auto; }
+.p-section { padding-block: 64px; }
+.p-eyebrow { margin-bottom: 8px; color: var(--p-secondary); font: 700 13px/1.4 var(--font-heading); letter-spacing: .14em; text-transform: uppercase; }
+.p-lead { max-width: 70ch; font-size: 18px; line-height: 1.5; }
+.p-top { border-bottom: 1px solid var(--p-rule); background: var(--p-surface); }
+.p-top .p-shell { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.p-logo-plate { display: block; flex: none; padding: 24px; background: var(--paper); }
+.p-logo-plate .wordmark { display: block; width: 132px; height: auto; }
+.p-nav { display: flex; flex-wrap: wrap; gap: 8px 24px; padding-block: 24px; }
+.p-nav a { min-height: 44px; display: inline-flex; align-items: center; font-weight: 700; }
+.p-hero { position: relative; overflow: hidden; padding-block: 96px; }
+.p-hero-copy { position: relative; z-index: 1; max-width: 920px; }
+.p-hero .letterform { position: absolute; right: -4%; top: 0; height: 100%; width: auto; opacity: .18; pointer-events: none; }
+.p-audience { margin: 24px 0 16px; font-weight: 700; }
+.p-limit-box { max-width: 920px; margin-top: 32px; padding: 24px; border-left: 4px solid var(--p-control); background: var(--p-surface); }
+.p-limit-box h2 { margin: 0 0 16px; font-size: 20px; }
+.p-limit-box ul { margin: 0; padding-left: 24px; }
+.p-limit-box li + li { margin-top: 8px; }
+.p-proof { background: var(--p-surface); }
+.p-section-head { margin-bottom: 32px; }
+.p-media { max-width: 1120px; }
+.p-media + .p-media { margin-top: 32px; }
+.p-media video { display: block; width: 100%; height: auto; background: var(--black); }
+.p-media figcaption { padding: 16px 0 0; color: var(--p-secondary); font-size: 14px; }
+.p-remaster-note { max-width: 70ch; margin-top: 24px; color: var(--p-secondary); }
+.p-labels { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 16px 0 0; padding: 0; list-style: none; color: var(--p-secondary); font-size: 14px; font-weight: 700; }
+.p-labels li { position: relative; padding-left: 16px; }
+.p-labels li::before { content: ""; position: absolute; left: 0; top: .65em; width: 8px; height: 8px; background: var(--blue); }
+.p-disclosure { max-width: 1120px; margin-top: 32px; border-top: 1px solid var(--p-rule); border-bottom: 1px solid var(--p-rule); background: var(--p-surface); }
+.p-disclosure summary { min-height: 56px; display: flex; align-items: center; padding: 16px 24px; color: var(--p-heading); font-weight: 700; cursor: pointer; }
+.p-disclosure summary::marker { color: var(--p-control); }
+.p-disclosure > summary::after { content: "+"; margin-left: auto; padding-left: 16px; color: var(--p-control); font-size: 20px; }
+.p-disclosure[open] > summary::after { content: "\2212"; }
+.p-detail-body { padding: 0 24px 24px; }
+.p-clip-guide li + li { margin-top: 8px; }
+.p-screen { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 24px; align-items: start; }
+.p-screen-frame { position: relative; min-width: 0; overflow: hidden; border: 1px solid var(--p-rule); background: var(--paper); }
+.p-screen-frame img { display: block; width: 100%; height: auto; }
+.p-screen-hot { position: absolute; border: 3px solid var(--blue); box-shadow: 0 0 0 2px var(--paper); pointer-events: none; }
+.p-screen-hot span { position: absolute; left: -3px; bottom: calc(100% + 8px); display: grid; place-items: center; width: 28px; height: 28px; border: 2px solid var(--example); background: var(--paper); color: var(--example); font: 700 14px/1 var(--font-heading); }
+.p-screen-copy { padding: 24px; background: var(--p-page); }
+.p-screen-copy h3 { margin: 8px 0 16px; }
+.p-screen-business { font-size: 18px; line-height: 1.5; }
+.p-screen-raw { margin-top: 24px; }
+.p-screen-raw summary { min-height: 44px; padding: 8px 0; color: var(--p-link); font-weight: 700; }
+.p-screen-raw p { font-size: 14px; }
+.p-screen-controls { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 24px; }
+.p-btn { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; padding: 8px 24px; border: 1px solid var(--p-control); font-weight: 700; text-decoration: none; cursor: pointer; }
+.p-btn-primary { border-color: var(--p-button); background: var(--p-button); color: var(--p-button-text); }
+.p-btn-secondary { background: var(--p-surface); color: var(--p-text); }
+.p-journey { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 32px 0 0; padding: 0; list-style: none; counter-reset: journey; }
+.p-journey li { position: relative; min-width: 0; padding: 24px; border-top: 4px solid var(--p-control); background: var(--p-surface); counter-increment: journey; }
+.p-journey li::before { content: counter(journey); display: grid; place-items: center; width: 32px; height: 32px; margin-bottom: 16px; border: 2px solid var(--example); background: var(--paper); color: var(--example); font-weight: 700; }
+.p-journey h3 { margin: 0 0 8px; }
+.p-journey p { margin-bottom: 16px; }
+.p-journey a { font-size: 14px; font-weight: 700; }
+.p-business-case { background: var(--p-surface); }
+.p-business-grid, .p-business-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.p-business-card { min-width: 0; padding: 24px; border-top: 4px solid var(--p-control); background: var(--p-page); }
+.p-business-card h3 { margin-bottom: 8px; }
+.p-business-card p:last-child { margin-bottom: 0; }
+.p-business-meta { margin-top: 24px; }
+.p-business-meta .p-business-card { border-top-width: 1px; }
+.p-business-demand { margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--p-rule); }
+.p-business-demand h3, .p-business-cta h3 { margin-bottom: 8px; }
+.p-business-sources { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 16px 0 0; padding: 0; list-style: none; }
+.p-business-sources a { font-weight: 700; }
+.p-business-try { margin-top: 24px; padding: 24px; border-left: 4px solid var(--p-control); background: var(--p-page); }
+.p-business-try p:last-child { margin-bottom: 0; }
+.p-business-cta { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-top: 32px; padding: 24px; background: var(--p-page); }
+.p-business-cta-copy { min-width: 0; }
+.p-business-cta-copy p { margin-bottom: 0; }
+.p-business-cta .p-btn { flex: none; }
+.p-next { background: var(--navy); color: var(--paper); }
+.p-next h2 { color: var(--paper); }
+.p-next .p-eyebrow { color: var(--grey-light); }
+.p-next .p-lead { margin-bottom: 24px; }
+.p-next-actions { display: flex; flex-wrap: wrap; gap: 16px 24px; }
+.p-next .p-btn-primary { background: var(--blue-light); border-color: var(--blue-light); color: var(--navy); }
+.p-next .p-btn-secondary { background: var(--navy); border-color: var(--blue-light); color: var(--paper); }
+.p-details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.p-details-grid .p-disclosure { margin-top: 0; align-self: start; }
+.p-route + .p-route, .p-record + .p-record { margin-top: 24px; padding-top: 24px; border-top: 1px solid var(--p-rule); }
+.p-route h3, .p-record h3 { margin-bottom: 8px; }
+.p-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 24px; padding: 0; list-style: none; }
+.p-foot { padding-block: 32px; border-top: 1px solid var(--p-rule); background: var(--p-surface); }
+.p-foot .p-shell { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 32px; }
+.p-foot p { margin: 0; font-size: 14px; }
+@media (max-width: 960px) {
+  .p-top .p-shell { align-items: flex-start; }
+  .p-screen { grid-template-columns: 1fr; }
+  .p-journey { grid-template-columns: 1fr 1fr; }
+  .p-business-cta { align-items: stretch; flex-direction: column; }
+  .p-details-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .p-shell { width: calc(100% - 32px); }
+  .p-section { padding-block: 48px; }
+  .p-top .p-shell { display: block; }
+  .p-logo-plate { width: fit-content; padding: 24px; }
+  .p-logo-plate .wordmark { width: 120px; }
+  .p-nav { padding: 16px 0 24px; }
+  .p-hero { padding-block: 64px; }
+  .p-hero .letterform { display: none; }
+  .p-limit-box, .p-screen-copy, .p-journey li { padding: 16px; }
+  .p-disclosure summary { padding-inline: 16px; }
+  .p-detail-body { padding: 0 16px 16px; }
+  .p-journey { grid-template-columns: 1fr; gap: 16px; }
+  .p-business-grid, .p-business-meta { grid-template-columns: 1fr; gap: 16px; }
+  .p-business-card, .p-business-try, .p-business-cta { padding: 16px; }
+  .p-btn { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media print {
+  :root { color-scheme: light; --p-page: var(--paper); --p-surface: var(--paper); --p-text: var(--ink); --p-heading: var(--black); --p-secondary: var(--blue-deep); --p-link: var(--blue-deep); --p-rule: var(--grey-light); }
+  .p-top, .p-skip, .p-next-actions, .p-screen-controls, details.p-screens { display: none !important; }
+  .p-section, .p-hero { padding-block: 24px; }
+  .p-hero .letterform { display: none; }
+  .p-details-grid { display: block; }
+  .p-business-card, .p-business-demand, .p-business-try, .p-business-cta { break-inside: avoid; }
+  .p-business-source::after { content: " (" attr(href) ")"; font-weight: 400; }
+  details.p-appendix { break-inside: avoid; }
+  details.p-appendix:not([open]) > .p-detail-body { display: block !important; }
+  details.p-appendix + details.p-appendix { margin-top: 24px; }
+  .p-next { background: var(--paper); color: var(--ink); border-block: 1px solid var(--grey-light); }
+  .p-next h2 { color: var(--black); }
+}
+
+
+.partner-rewrite-v3 { --p-page: var(--paper); }
+.partner-rewrite-v3 .p-logo-plate { padding: 24px 0; background: transparent; }
+.partner-rewrite-v3 .p-logo-plate .wordmark { width: 192px; height: auto; }
+.partner-rewrite-v3 .p-top { position: fixed; inset: 0 auto 0 0; width: 240px; overflow-y: auto; border-right: 1px solid var(--p-rule); border-bottom: 0; }
+.partner-rewrite-v3 .p-top .p-shell { display: block; width: calc(100% - 48px); }
+.partner-rewrite-v3 .p-nav { flex-direction: column; gap: 8px; }
+.partner-rewrite-v3 .p-nav a { padding: 0 8px; }
+.partner-rewrite-v3 main, .partner-rewrite-v3 .p-foot { margin-left: 240px; }
+.partner-rewrite-v3 .p-hero .letterform { display: block; right: 0; opacity: 1; height: 100%; width: auto; }
+.partner-rewrite-v3 .p-hero::after { content: none; }
+.partner-rewrite-v3 .p-hero-copy { padding-right: 160px; }
+.partner-rewrite-v3 .p-business-card { background: var(--p-surface); }
+.partner-rewrite-v3 .p-next { --p-focus: var(--blue-light); }
+.partner-rewrite-v3 .p-details-grid { display: block; }
+@media (prefers-color-scheme: dark) { .partner-rewrite-v3 { --p-page: var(--navy); } }
+@media (max-width: 960px) {
+  .partner-rewrite-v3 .p-top { position: static; width: auto; border-right: 0; border-bottom: 1px solid var(--p-rule); }
+  .partner-rewrite-v3 .p-top .p-shell { width: calc(100% - 32px); }
+  .partner-rewrite-v3 .p-nav { flex-direction: row; }
+  .partner-rewrite-v3 main, .partner-rewrite-v3 .p-foot { margin-left: 0; }
+  .partner-rewrite-v3 .p-logo-plate .wordmark { width: 168px; }
+}
+@media (max-width: 768px) {
+  .partner-rewrite-v3 .p-hero-copy { padding-right: 48px; }
+  .partner-rewrite-v3 .p-hero .letterform { width: 32px; height: 100%; }
+}
+@media print {
+  .partner-rewrite-v3 main, .partner-rewrite-v3 .p-foot { margin-left: 0; }
+  .partner-rewrite-v3 .p-hero::after { display: none; }
+  .partner-rewrite-v3 details.p-appendix { break-inside: auto; }
+  .partner-rewrite-v3 .p-appendix > summary, .partner-rewrite-v3 .p-detail-body :is(h2, h3, h4, h5, h6) { break-after: avoid; }
+  .partner-rewrite-v3 .p-detail-body h3 { margin-bottom: 8px; }
+  .partner-rewrite-v3 .p-next .p-eyebrow { color: var(--blue-deep); }
+  .partner-rewrite-v3 .p-foot .p-shell > p:last-child { display: none; }
+  .partner-rewrite-v3 .p-foot { break-inside: avoid; padding-block: 8px; }
+  .partner-rewrite-v3 .video-experience { break-inside: avoid; }
+  .partner-rewrite-v3 .video-experience video { display: none; }
+  .partner-rewrite-v3 .video-experience .video-print-poster { display: block; width: 100%; height: auto; }
+}
+</style>
+<style>
+.video-experience { margin-block: 24px; min-width: 0; }
+.video-experience h3 { margin: 0 0 12px; }
+.video-experience-layout { display: grid; gap: 20px; align-items: start; }
+.video-experience.has-chapters .video-experience-layout { grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr); }
+.video-experience figure { min-width: 0; margin: 0; }
+.video-experience video { display: block; width: 100%; height: auto; background: var(--black); }
+.video-experience .video-print-poster { display: none; }
+.video-experience figcaption { padding: 12px; }
+.video-chapters { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.video-chapters button { width: 100%; min-height: 44px; padding: 12px; border: 1px solid var(--grey-light); background: var(--paper); color: var(--ink); text-align: left; font: inherit; cursor: pointer; overflow-wrap: anywhere; }
+.video-chapters button span { font-variant-numeric: tabular-nums; font-weight: bold; }
+.video-chapters button:focus-visible, .video-experience video:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+@media (max-width: 700px) { .video-experience.has-chapters .video-experience-layout { grid-template-columns: minmax(0, 1fr); } }
+</style>
+</head>
+<body class="presentation-v2 partner-rewrite-v3">
+<a class="p-skip" href="#main">Skip to content</a>
+<header class="p-top">
+  <div class="p-shell">
+    <a class="p-logo-plate" href="../../index.html" aria-label="Ingram Micro iMBrace demo study home"><svg class="wordmark" role="img" aria-label="Ingram Micro" viewBox="0 0 523.77 95.4" xmlns="http://www.w3.org/2000/svg" overflow="hidden"><defs></defs><g><g><path d="M495.17 20.36C495.17 18.14 497.31 17.23 500.79 17.23 504.27 17.23 506.41 18.06 506.41 20.36 506.41 23.22 502.94 23.55 500.77 23.55 497.3 23.55 495.17 22.64 495.17 20.36M509.72 20.36C509.72 16 506.38 12.97 500.77 12.97 496.71 12.97 491.85 14.99 491.85 20.36 491.85 25.73 496.16 27.8 500.77 27.8 505.38 27.8 509.72 25.49 509.72 20.36M495.2 40.82 495.2 37.73C495.2 35.81 496.41 35.11 497.39 35.11 498.48 35.11 499.63 35.85 499.63 37.73L499.63 40.82 495.2 40.82ZM502.62 40.82 502.62 37.86 509.47 35.21 509.47 30.7 501.8 33.92C501.12 32.05 499.3 30.91 497.32 30.91 494.12 30.91 492.11 33 492.11 37.18L492.11 44.88 509.47 44.88 509.47 40.82 502.62 40.82ZM498.57 48.73C494.39 49.18 491.85 51.41 491.85 55.76 491.85 60.98 495.98 63.55 500.79 63.55 505.6 63.55 509.72 61.06 509.72 55.89 509.72 51.89 507.37 49.16 503.38 48.73L503.14 52.68C504.81 52.91 506.41 53.79 506.41 55.69 506.41 58.76 503.35 59.03 500.96 59.03 498.86 59.03 495.12 58.75 495.12 55.89 495.12 53.67 496.91 53 498.83 52.98L498.57 48.73ZM509.47 67.46 492.1 67.46 492.1 71.51 509.47 71.51 509.47 67.46ZM509.47 84.93 509.47 87.71 495.32 91.89 495.32 91.99 509.47 91.99 509.47 95.4 492.11 95.4 492.11 89.05 502.51 86.01 492.11 82.83 492.11 76.47 509.47 76.47 509.47 80.51 495.32 80.51 495.32 80.62 509.47 84.93ZM151.99 95.4 86.29 95.4C81.2 76.52 70.42 36.67 70.42 36.67L70.24 36.67 70.24 95.4 43.38 95.4 43.38 14.23 90 14.23C94.91 32.96 105.21 71.47 105.21 71.47L105.38 71.47 105.38 14.23 132.31 14.23 132.31 26.56C125.74 33.49 121.76 42.35 121.76 53.46 121.76 69.41 130.71 89.2 151.98 95.4M471.21 14.23 471.21 95.4 443.08 95.4 443.08 31.83 442.66 31.83 426.5 95.4 400.52 95.4 384.41 31.83 383.98 31.83 383.98 95.4 334.77 95.4 329.86 77.92 303.41 77.92 298.51 95.4 251.49 95.4C251.49 95.4 249.89 83.44 249.48 80.46 248.09 70.4 245.06 67.96 239.06 67.96L230.85 67.96 230.85 95.4 182.68 95.4C196.56 92.24 209.09 85.94 216.26 81.61L206.15 43.25 179.25 50.34 184.98 72.1C183.3 73.3 177.7 75.26 173.86 75.26 161.01 75.26 154.92 62.39 154.92 51.3 154.92 33.45 173.1 26.58 189.14 26.58 192.86 26.58 197.68 26.91 198.36 26.99L195 14.25 251.06 14.25C273.5 14.25 282.2 24.89 282.2 36.21 282.2 53.34 265.85 56.56 262.74 57.11 262.69 57.12 262.69 57.59 262.74 57.6 269.27 58.84 274.06 62 277.13 67.51 277.02 67.32 294.3 18.71 295.86 14.25L338.96 14.25 357.15 65.15 357.38 65.15 357.38 14.23 403.73 14.23C403.73 14.23 414.47 58.67 414.54 58.67 418.03 43.88 425.05 14.23 425.05 14.23L471.22 14.23ZM0 14.23 31.22 14.23C31.22 14.23 31.18 68.17 31.18 95.4 30.98 95.4 0.19 95.42 0 95.4L0 14.23ZM316.39 31.66 307.66 58.42 325.66 58.42 316.85 31.66 316.38 31.66ZM230.84 49.66 240.12 49.66C247.71 49.66 250.88 45.74 250.88 40.94 250.88 34.81 245.65 32.4 240.12 32.4L230.84 32.4 230.84 49.66Z" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" fill="#0077D4" fill-opacity="1"/><path d="M513.47 5.15C513.47 2.31 515.78 0 518.62 0 521.46 0 523.77 2.31 523.77 5.15 523.77 7.99 521.46 10.3 518.62 10.3 515.78 10.3 513.47 7.99 513.47 5.15M522.52 5.15C522.52 2.74 520.78 1 518.63 1 516.48 1 514.73 2.74 514.73 5.15 514.73 7.56 516.47 9.31 518.63 9.31 520.79 9.31 522.52 7.56 522.52 5.15M516.64 2.21 518.81 2.21C520.21 2.21 520.96 2.7 520.96 3.92 520.96 4.92 520.39 5.4 519.43 5.49L521 8.05 519.88 8.05 518.37 5.54 517.71 5.54 517.71 8.05 516.62 8.05 516.62 2.21ZM517.73 4.71 518.68 4.71C519.32 4.71 519.88 4.63 519.88 3.84 519.88 3.16 519.25 3.04 518.69 3.04L517.72 3.04 517.72 4.71Z" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" fill="#0077D4" fill-opacity="1"/></g></g></svg></a>
+    <nav class="p-nav" aria-label="Case navigation">
+      <a href="#proof">Watch the workflow</a><a href="#how">How it works</a><a href="#business-case">Business case</a><a href="#next">Next step</a><a href="#details">Details</a>
+    </nav>
+  </div>
+</header>
+<main id="main">
+  <section class="p-hero">
+    <svg class="letterform" aria-hidden="true" focusable="false" preserveAspectRatio="xMinYMid slice" viewBox="0 0 382.01 1078.54" xmlns="http://www.w3.org/2000/svg" overflow="hidden"><defs><clipPath id="g1-clip"><rect x="0" y="0" width="382.01" height="1078.54" fill="none"/></clipPath></defs><g><g clip-path="url(#g1-clip)"><path d="M519.95 2127.97C534 2127.97 539.75 2141.49 539.75 2163.48 539.75 2185.47 534.53 2198.98 519.95 2198.98 501.89 2198.98 499.79 2177.08 499.79 2163.35 499.79 2141.41 505.54 2127.97 519.95 2127.97M519.95 2219.91C547.52 2219.91 566.67 2198.82 566.67 2163.35 566.67 2137.72 553.92 2106.96 519.95 2106.96 485.98 2106.96 472.91 2134.21 472.91 2163.35 472.91 2192.49 487.48 2219.91 519.95 2219.91M390.68 2128.13 410.23 2128.13C422.38 2128.13 426.79 2135.78 426.79 2141.98 426.79 2148.86 422.09 2156.15 410.23 2156.15L390.68 2156.15 390.68 2128.13ZM390.68 2175.01 409.38 2175.01 426.14 2218.33 454.64 2218.33 434.32 2169.87C446.14 2165.58 453.35 2154.04 453.35 2141.53 453.35 2121.33 440.15 2108.62 413.72 2108.62L365.06 2108.62 365.06 2218.33 390.69 2218.33 390.69 2175.01ZM340.68 2149.42C337.81 2122.98 323.76 2106.95 296.23 2106.95 263.28 2106.95 247 2133.06 247 2163.47 247 2193.88 262.75 2219.91 295.42 2219.91 320.68 2219.91 337.97 2205.05 340.68 2179.87L315.74 2178.33C314.28 2188.86 308.7 2198.98 296.71 2198.98 277.32 2198.98 275.58 2179.63 275.58 2164.57 275.58 2151.29 277.32 2127.65 295.42 2127.65 309.47 2127.65 313.68 2138.94 313.8 2151.09L340.68 2149.43ZM222.34 2218.32 222.34 2108.57 196.75 2108.57 196.75 2218.32 222.34 2218.32ZM111.94 2218.32 94.37 2218.32 67.97 2128.89 67.32 2128.89 67.32 2218.32 45.78 2218.32 45.78 2108.61 85.9 2108.61 105.09 2174.32 125.21 2108.61 165.37 2108.61 165.37 2218.32 139.82 2218.32 139.82 2128.89 139.13 2128.89 111.92 2218.32ZM45.79-40.68 45.79-455.85C165.1-488 416.91-556.13 416.91-556.13L416.91-557.26 45.79-557.26 45.79-727.01 558.69-727.01 558.69-432.4C440.31-401.35 197-336.29 197-336.29L197-335.2 558.69-335.2 558.69-165 480.76-165C436.96-206.54 380.96-231.64 310.8-231.64 209.99-231.64 84.94-175.08 45.79-40.67M558.69 1976.57 45.79 1976.57 45.79 1798.8 447.48 1798.8 447.48 1796.17 45.79 1694.03 45.79 1529.86 447.48 1428.08 447.48 1425.37 45.79 1425.37 45.79 1114.41 156.27 1083.36 156.27 916.2 45.79 885.23 45.79 588.07C45.79 588.07 121.38 577.99 140.2 575.36 203.8 566.57 219.19 547.43 219.19 509.49L219.19 457.59 45.79 457.59 45.79 153.2C65.75 240.89 105.55 320.08 132.95 365.42L375.37 301.53 330.59 131.57 193.06 167.76C185.49 157.11 173.1 121.73 173.1 97.52 173.1 16.35 254.43-22.19 324.51-22.19 437.3-22.19 480.74 92.67 480.74 194.04 480.74 217.52 478.68 248.01 478.15 252.3L558.67 231.05 558.67 585.29C558.67 727.11 491.42 782.09 419.89 782.09 311.63 782.09 291.27 678.77 287.79 659.14 287.71 658.82 284.75 658.82 284.71 659.14 276.9 700.39 256.9 730.68 222.08 750.07 223.25 749.38 530.45 858.57 558.67 868.45L558.67 1140.79 237.02 1255.73 237.02 1257.19 558.67 1257.19 558.67 1550.1C558.67 1550.1 277.83 1617.95 277.83 1618.4 371.31 1640.46 558.67 1684.84 558.67 1684.84L558.67 1976.57ZM558.69-1001.09 558.69-803.81C558.69-803.81 217.81-804.05 45.79-804.05 45.79-805.3 45.67-999.87 45.79-1001.09L558.69-1001.09ZM448.53 998.21 279.42 943.07 279.42 1056.83 448.53 1001.16 448.53 998.2ZM334.81 457.58 334.81 516.24C334.81 564.21 359.59 584.21 389.91 584.21 428.65 584.21 443.88 551.13 443.88 516.24L443.88 457.58 334.81 457.58Z" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4" fill="#0077D4" fill-opacity="1"/></g></g></svg>
+    <div class="p-shell p-hero-copy">
+      <p class="p-eyebrow">CA-1 Daily KPI anomaly alerts</p>
+      <h1>Explain unusual sales days with checked figures</h1>
+      <p class="p-audience">Who it is for: Sales Ops and regional sales managers who need to hear about an unusual day early, and the analyst who owns the alert rules.</p>
+      <p class="p-lead">Watch a sales movement become an explained alert. See a normal day stay quiet, then use feedback on a demo alert to tune the returns threshold.</p>
+    </div>
+  </section>
+
+  <section class="p-section p-proof" id="proof" aria-labelledby="proof-title">
+    <div class="p-shell">
+      <div class="p-section-head">
+        <p class="p-eyebrow">Watch it working</p>
+        <h2 id="proof-title">Watch the figures explain the sales movement</h2>
+        <p class="p-lead">Follow the sales drivers into a checked explanation, then see how alert feedback and an updated rule shape the next result.</p>
+      </div>
+      <section class="video-experience" aria-labelledby="highlight-heading">
+    <h3 id="highlight-heading">Highlight · 1:19</h3>
+    <div class="video-experience-layout">
+      <figure class="p-media">
+        <video id="highlight-video" controls preload="metadata" tabindex="0" poster="media/highlight-poster.png" data-duration="78.75" aria-labelledby="highlight-heading" width="1280" height="800">
+          <source src="media/highlight.webm" type="video/webm">
+          <track kind="captions" srclang="en" label="English" src="media/highlight.vtt">
+          Your browser cannot play this video. <a href="media/highlight.webm">Download highlight</a>.
+        </video>
+        <img class="video-print-poster" src="media/highlight-poster.png" alt="Highlight poster" width="1280" height="800">
+        <figcaption><a href="media/highlight.webm" download>Download highlight</a> · <a href="media/highlight-transcript.html">Read highlight transcript</a></figcaption>
+      </figure>
+    </div>
+  </section><section class="video-experience has-chapters" aria-labelledby="full-heading">
+    <h3 id="full-heading">Full walkthrough · 4:55</h3>
+    <div class="video-experience-layout">
+      <figure class="p-media">
+        <video id="full-video" controls preload="metadata" tabindex="0" poster="media/full-poster.png" data-duration="294.6" aria-labelledby="full-heading" width="1280" height="800">
+          <source src="media/full.webm" type="video/webm">
+          <track kind="captions" srclang="en" label="English" src="media/full.vtt">
+          <track kind="chapters" srclang="en" label="Chapters" src="media/full-chapters.vtt">
+          Your browser cannot play this video. <a href="media/full.webm">Download full walkthrough</a>.
+        </video>
+        <img class="video-print-poster" src="media/full-poster.png" alt="Full walkthrough poster" width="1280" height="800">
+        <figcaption><a href="media/full.webm" download>Download full walkthrough</a> · <a href="media/full-transcript.html">Read full walkthrough transcript</a></figcaption>
+      </figure><nav aria-label="Full walkthrough chapters">
+      <ol class="video-chapters"><li><button type="button" data-video-chapter="full-video" data-start="3" aria-controls="full-video"><span>0:03</span> Open the demo sales alert</button></li><li><button type="button" data-video-chapter="full-video" data-start="31.76" aria-controls="full-video"><span>0:31</span> Follow the sales drivers</button></li><li><button type="button" data-video-chapter="full-video" data-start="75.28" aria-controls="full-video"><span>1:15</span> Request a normal-day check</button></li><li><button type="button" data-video-chapter="full-video" data-start="212.46" aria-controls="full-video"><span>3:32</span> Record feedback on the demo alert</button></li><li><button type="button" data-video-chapter="full-video" data-start="281.82" aria-controls="full-video"><span>4:41</span> See the revised threshold&#39;s result</button></li></ol>
+    </nav>
+    </div>
+  </section>
+      <ul class="p-labels" id="proof-labels"><li>Synthetic data</li><li>Simulated Slack: nothing sent</li></ul>
+      <p><a href="#screens">Explore the workflow screens</a></p>
+    </div>
+  </section>
+
+  <section class="p-section" id="how" aria-labelledby="how-title">
+    <div class="p-shell">
+      <p class="p-eyebrow">How it works</p>
+      <h2 id="how-title">From daily figures to a useful alert</h2>
+      <ol class="p-journey"><li>
+        <h3>Choose a sales day</h3>
+        <p>A request on DataIQ, iMBrace&#39;s records boards, selects the day to check.</p>
+        <a href="#screens" data-p-screen="4">See screen 4</a>
+      </li><li>
+        <h3>Calculate the drivers</h3>
+        <p>The workflow compares matching weekdays and calculates which channels or regions explain the movement.</p>
+        <a href="#screens" data-p-screen="2">See screen 2</a>
+      </li><li>
+        <h3>Keep the explanation grounded</h3>
+        <p>A flagged day goes to the AI writer. The workflow checks its figures before keeping the explanation on a demo alert board.</p>
+        <a href="#screens" data-p-screen="3">See screen 3</a>
+      </li><li>
+        <h3>Use the feedback</h3>
+        <p>An automated test plays Sales Ops and the analyst: it records alert feedback, changes the threshold and checks the same day again.</p>
+        <a href="#screens" data-p-screen="13">See screen 13</a>
+      </li></ol>
+    </div>
+  </section>
+
+
+
+
+  <section class="p-section p-business-case" id="business-case" aria-labelledby="business-case-title">
+    <div class="p-shell">
+      <div class="p-section-head">
+        <p class="p-eyebrow">Business case</p>
+        <h2 id="business-case-title">Bring daily comparisons, sales drivers and alert feedback into one workflow.</h2>
+        <p class="p-lead"><strong>Who it is for:</strong> Sales-operations, commercial-finance and regional leaders that own alert rules and dispositions.</p>
+      </div>
+      <div class="p-business-grid">
+        <article class="p-business-card"><h3>What the workflow does</h3><p>The demo alert brings the sales movement and its drivers together. A revised returns threshold changes the next result for the same sales day.</p></article>
+        <article class="p-business-card"><h3>Compare matching weekdays</h3><p>The workflow uses the previous eight matching weekdays as its comparison window.</p></article><article class="p-business-card"><h3>Explain the movement</h3><p>Channel drivers reconcile to the regional revenue change shown in the demo alert.</p></article>
+      </div>
+      
+      <div class="p-business-cta">
+        <div class="p-business-cta-copy"><h3>Choose a sales measure for your pilot</h3><p>Bring a daily sales feed, your business calendar and an analyst who owns the alert rules. Map the review and delivery steps with Ingram Micro.</p></div>
+        <a class="p-btn p-btn-primary" href="https://sg-corp.ingrammicro.com/about-us/contact" target="_blank" rel="noopener noreferrer" aria-label="Contact Ingram Micro Singapore (opens in a new tab)">Contact Ingram Micro Singapore</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-section p-next" id="next" aria-labelledby="next-title">
+    <div class="p-shell">
+      <p class="p-eyebrow">Next step</p>
+      <h2 id="next-title">Start with one sales measure</h2>
+      <p class="p-lead">Bring the daily figures and examples of sales movements your team wants to review.</p>
+      <div class="p-next-actions">
+        <a class="p-btn p-btn-primary" href="../../index.html">Compare all demos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-section" id="details" aria-labelledby="details-title">
+    <div class="p-shell">
+      <p class="p-eyebrow">Engineering and evidence</p>
+      <h2 id="details-title">Open only the detail you need</h2>
+      <div class="p-details-grid">
+        <details class="p-disclosure p-screens" id="screens">
+        <summary>Explore all 13 annotated screens</summary>
+        <div class="p-detail-body">
+          <p id="p-screen-status" role="status" aria-live="polite" class="p-eyebrow"></p>
+          <div class="p-screen" id="p-screen-view">
+            <figure class="p-screen-frame" id="p-screen-frame">
+              <img id="p-screen-image" alt="">
+              <span class="p-screen-hot" id="p-screen-hot" hidden aria-hidden="true"><span id="p-screen-hot-number">1</span></span>
+            </figure>
+            <section class="p-screen-copy">
+              <p class="p-eyebrow" id="p-screen-number"></p>
+              <h3 id="p-screen-title" tabindex="-1"></h3>
+              <p class="p-screen-business" id="p-screen-business"></p>
+              <ul class="p-labels" id="p-screen-labels"></ul>
+              <details class="p-screen-raw"><summary>Screen detail and evidence</summary><p id="p-screen-caption"></p><p id="p-screen-evidence"></p></details>
+              <p><a id="p-screen-original" href="">Open the original image</a></p>
+              <div class="p-screen-controls">
+                <button class="p-btn p-btn-secondary" type="button" id="p-screen-prev">Previous</button>
+                <button class="p-btn p-btn-primary" type="button" id="p-screen-next">Next</button>
+              </div>
+            </section>
+          </div>
+        </div>
+      </details>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="p-foot">
+  <div class="p-shell">
+    <p>Ingram Micro · Built on iMBrace · Fictional Kestrel Distribution sales; demo alert board; automated Sales Ops and analyst roles.</p>
+    <p><a href="../../index.html">Return to the iMBrace demo study</a></p>
+  </div>
+</footer>
+<script type="application/json" id="presentation-data">{"steps":[{"src":"img/01-01-alert-summary.png","title":"An unusual day becomes an alert: South revenue down 29.1% on 20 October; the whole business only 5.8%.","caption":"ALR-2026-10-20, opened on Sales Alerts. Summary: \"South revenue $39,424 vs $55,568 on an average Tuesday: -$16,144 (-29.1%); whole business -5.8%. Unusual: 9.7 times the usual spread\". Raised in this demo run on 5 Nov (the data ends on 4 Nov); live, it would come the next morning. Further down, its Disposition reads Material: the three incidents were marked Material behind the scenes.","business":"An unusual day surfaces as one line, with the size of the move and how the whole business moved, instead of waiting for someone to spot it on a dashboard.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Detection and figure check: Built on iMBrace with FlowOps","Simulated Slack: nothing is sent","The requests for 22 Sep, 7 Oct, 20 Oct and 26 Sep, and the three incidents' Material dispositions, were written behind the scenes by Claude through iMBrace's MCP (one demo account)"],"evidence":["scenario-1-2026-10-20-alert.json"],"hotspot":{"x":316,"y":127,"w":808,"h":160}},{"src":"img/02-02-alert-drivers.png","title":"The drivers add up to the change: -$16,144 = Online -$14,464 + Wholesale -$1,680.","caption":"Drivers: \"South revenue: -$16,144 vs the 8-week average = Online -$14,464 + Wholesale -$1,680 / South gross margin %: -2.86 pp vs the 8-week average = Online -3.47 pp + Wholesale +0.61 pp (an offset)\". Each driver is that channel's change against its own average Tuesday. Wholesale's +0.61 pp on margin moved the other way: an offset.","business":"Where the move came from, worked out the same way every time and adding up, so nobody rebuilds it in a spreadsheet.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Detection and figure check: Built on iMBrace with FlowOps","The requests for 22 Sep, 7 Oct, 20 Oct and 26 Sep, and the three incidents' Material dispositions, were written behind the scenes by Claude through iMBrace's MCP (one demo account)"],"evidence":[],"hotspot":{"x":316,"y":287,"w":808,"h":140}},{"src":"img/03-03-alert-explanation.png","title":"Worded by the AI; every number checked against the calculation; not sent anywhere.","caption":"The Explanation is the Sales Anomaly Analyst's wording of the computed facts. Its Explanation source: a code step checked every number in it against the calculation (region, KPI, channel, role and direction; not the meaning of every sentence), otherwise a fixed template is used and it says why. Delivery: \"Simulated Slack #sales-ops: not sent\".","business":"A readable alert without a made-up number, and nothing goes out until a real channel is connected.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Detection and figure check: Built on iMBrace with FlowOps","Simulated Slack: nothing is sent","The requests for 22 Sep, 7 Oct, 20 Oct and 26 Sep, and the three incidents' Material dispositions, were written behind the scenes by Claude through iMBrace's MCP (one demo account)"],"evidence":["scenario-1-2026-10-20-run.json"],"hotspot":{"x":316,"y":127,"w":808,"h":300}},{"src":"img/04-04-request-result.png","title":"How it was asked: a record on KPI Check Requests, with the result written back.","caption":"The request CHK-53153 (Date to check 2026-10-20), opened: Status \"Checked: alert raised\", Alert ref ALR-2026-10-20, AI calls 1, and the Result. It was added behind the scenes through MCP; a person adds one with + (step 7).","business":"One way to ask for a check, for a person and for the schedule alike.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","The requests for 22 Sep, 7 Oct, 20 Oct and 26 Sep, and the three incidents' Material dispositions, were written behind the scenes by Claude through iMBrace's MCP (one demo account)"],"evidence":[],"hotspot":{"x":316,"y":243,"w":808,"h":140}},{"src":"img/05-05-watch-run-steps.png","title":"Watch it happen: FlowOps lists every step of the check, with its time and a green tick.","caption":"FlowOps > Runs, the run behind ALR-2026-10-20. The list on the left, every step with its time and a green tick: the rules read, Detect, and the router \"Anything to alert?\", selected (its Output: the alert branch, evaluation true). Above them the request re-read and Daily Sales read in five pages; below, the Sales Alerts read, \"Already alerted for this day?\", the AI step and the number check.","business":"Every check leaves a record anyone can open: what was read, what was decided, what was written.","labels":["Recorded live on cloud.imbrace.co","Detection and figure check: Built on iMBrace with FlowOps"],"evidence":["scenario-1-2026-10-20-run.json"],"hotspot":{"x":208,"y":30,"w":1232,"h":640}},{"src":"img/06-06-watch-run-ai-step.png","title":"The AI step: the agent words the facts it was given.","caption":"The same run, the AI step selected (5 seconds): its Output, on the left, is the text the Sales Anomaly Analyst wrote. The next step checks every number in it before the alert is written. The Provider and Model boxes read \"Select an option\" in this view, but the flow holds them (DeepSeek V3.2 on iMBrace's Bedrock provider, set in the imported flow).","business":"The AI words the alert; the numbers in it come from the calculation.","labels":["Recorded live on cloud.imbrace.co","Detection and figure check: Built on iMBrace with FlowOps"],"evidence":[],"hotspot":{"x":208,"y":30,"w":1232,"h":640}},{"src":"img/07-07-normal-day-form.png","title":"Sales Ops asks for 27 October: the + on the board, the fields, SAVE.","caption":"KPI Check Requests, + (add record): Request ref, Date to check 2026-10-27, Status Requested, Mode Check, Requested by. Typed in the browser by Claude (automated test) as Sales Ops; SAVE next.","business":"Asking for a check is adding a record: no tool to learn.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Typed by Claude (automated test) as Sales Ops, in the browser"],"evidence":[],"hotspot":{"x":316,"y":89,"w":808,"h":640}},{"src":"img/08-08-normal-day-result.png","title":"A normal day: \"No anomaly\", no AI call, nothing routed.","caption":"The request, opened after SAVE: Status \"Checked: no anomaly\", AI calls 0, and the Result: \"No anomaly on Tuesday 2026-10-27: 15 series checked; the largest move was 2.3 times the usual day-to-day spread (North revenue), within the rules. No AI call was made and nothing was routed.\"","business":"Quiet days stay quiet: no alert, no AI call.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Typed by Claude (automated test) as Sales Ops, in the browser"],"evidence":[],"hotspot":{"x":316,"y":243,"w":808,"h":140}},{"src":"img/09-09-watch-normal-run.png","title":"Watch it happen: on a normal day the run has no AI step at all.","caption":"FlowOps > Runs, the 27 October check, the router \"Anything to alert?\" selected: it took \"No alert\". The step list goes from the router straight to writing the result on the request: no AI step.","business":"The AI is called only when there is something to explain.","labels":["Recorded live on cloud.imbrace.co","Detection and figure check: Built on iMBrace with FlowOps"],"evidence":[],"hotspot":{"x":208,"y":30,"w":1232,"h":640}},{"src":"img/10-10-false-alarm-disposition.png","title":"A false alarm: Sales Ops marks 26 September \"Not material\".","caption":"ALR-2026-09-26: South Returns rate % 1.82% vs expected 2.45% (-0.64 pp, z -4.9), a small move. The detail panel, the pencil, Disposition \"Not material\", then SAVE. Typed in the browser by Claude (automated test) as Sales Ops.","business":"People judge the alerts, and that judgement is kept.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Typed by Claude (automated test) as Sales Ops, in the browser"],"evidence":[],"hotspot":{"x":316,"y":128,"w":808,"h":120}},{"src":"img/11-11-precision.png","title":"Alert Precision: 3 of 4 reviewed alerts were material (75%).","caption":"Alert Precision, recomputed when the disposition was saved. Its Value, cut short on the board, reads \"3 of 4 reviewed alerts were material (75%)\"; Material 3, Not material 1, With feedback 4. The three Material marks were made behind the scenes; the Not material on screen. Over the whole backtest the default rules give 3 of 5 (60%).","business":"A running answer to \"are these alerts worth reading?\"","labels":["Recorded live on cloud.imbrace.co","Synthetic data","The requests for 22 Sep, 7 Oct, 20 Oct and 26 Sep, and the three incidents' Material dispositions, were written behind the scenes by Claude through iMBrace's MCP (one demo account)","Typed by Claude (automated test) as Sales Ops, in the browser"],"evidence":[],"hotspot":{"x":388,"y":130,"w":1046,"h":32}},{"src":"img/12-12-rule-edit.png","title":"The analyst raises R-3's material change from 0.3 to 0.7 points.","caption":"KPI Alert Rules, R-3 (Returns rate %): the detail panel, the pencil, Material change 0.7, then SAVE. Typed in the browser by Claude (automated test) as the analyst.","business":"Tuning an alert is editing a number on a board, not a change request to IT.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","Typed by Claude (automated test) as the analyst, in the browser"],"evidence":[],"hotspot":{"x":316,"y":331,"w":808,"h":120}},{"src":"img/13-13-recheck-after-rule-edit.png","title":"The next check uses the new rule: 26 September is no longer flagged.","caption":"A new request for 2026-09-26 (CHK-R3-25731), added behind the scenes through MCP, opened: Status \"Checked: no anomaly\". The South returns-rate move is now below R-3's 0.7 points. R-3 was then set back to 0.3.","business":"The rule change takes effect on the very next check.","labels":["Recorded live on cloud.imbrace.co","Synthetic data","The re-check request was written behind the scenes by Claude through iMBrace's MCP"],"evidence":[],"hotspot":{"x":316,"y":243,"w":808,"h":140}}]}</script>
+<script>
+(function () {
+  var node = document.getElementById('presentation-data');
+  if (!node) return;
+  var data = JSON.parse(node.textContent), steps = data.steps, pos = 0;
+  var image = document.getElementById('p-screen-image');
+  var frame = document.getElementById('p-screen-frame');
+  var hot = document.getElementById('p-screen-hot');
+  var hotNumber = document.getElementById('p-screen-hot-number');
+  var number = document.getElementById('p-screen-number');
+  var title = document.getElementById('p-screen-title');
+  var business = document.getElementById('p-screen-business');
+  var caption = document.getElementById('p-screen-caption');
+  var labels = document.getElementById('p-screen-labels');
+  var evidence = document.getElementById('p-screen-evidence');
+  var original = document.getElementById('p-screen-original');
+  var previous = document.getElementById('p-screen-prev');
+  var next = document.getElementById('p-screen-next');
+  var status = document.getElementById('p-screen-status');
+
+  function place() {
+    var step = steps[pos], h = step.hotspot, nw = image.naturalWidth, nh = image.naturalHeight;
+    if (!h || !nw || !nh) { hot.hidden = true; return; }
+    hot.style.left = (100 * h.x / nw) + '%';
+    hot.style.top = (100 * h.y / nh) + '%';
+    hot.style.width = (100 * h.w / nw) + '%';
+    hot.style.height = (100 * h.h / nh) + '%';
+    hot.hidden = false;
+  }
+  function addTextList(target, values) {
+    target.replaceChildren.apply(target, values.map(function (value) {
+      var item = document.createElement('li'); item.textContent = value; return item;
+    }));
+    target.hidden = !values.length;
+  }
+  function render(moveFocus) {
+    var step = steps[pos];
+    number.textContent = 'Screen ' + (pos + 1) + ' of ' + steps.length;
+    title.textContent = step.title;
+    business.textContent = step.business || step.caption;
+    caption.textContent = step.caption;
+    evidence.textContent = step.evidence.length ? 'Evidence: ' + step.evidence.join(', ') : '';
+    evidence.hidden = !step.evidence.length;
+    addTextList(labels, step.labels);
+    original.href = step.src;
+    original.setAttribute('aria-label', 'Open original image for screen ' + (pos + 1) + ': ' + step.title);
+    previous.disabled = pos === 0;
+    next.disabled = pos === steps.length - 1;
+    hotNumber.textContent = String(pos + 1);
+    hot.hidden = true;
+    image.alt = step.title + '. ' + (step.business || step.caption);
+    if (image.getAttribute('src') === step.src && image.complete) place(); else image.src = step.src;
+    status.textContent = 'Screen ' + (pos + 1) + ': ' + step.title;
+    if (moveFocus) title.focus({ preventScroll: true });
+  }
+  image.addEventListener('load', place);
+  previous.addEventListener('click', function () { if (pos > 0) { pos -= 1; render(true); } });
+  next.addEventListener('click', function () { if (pos < steps.length - 1) { pos += 1; render(true); } });
+  document.querySelectorAll('[data-p-screen]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      var details = document.getElementById('screens');
+      pos = Math.max(0, Math.min(steps.length - 1, Number(link.getAttribute('data-p-screen')) - 1));
+      for (var current = details; current; current = current.parentElement) {
+        if (current.tagName === 'DETAILS') current.open = true;
+      }
+      render(false);
+    });
+  });
+  function openLinkedDetails() {
+    var target = document.getElementById(location.hash.slice(1));
+    if (!target) return;
+    for (var current = target; current; current = current.parentElement) {
+      if (current.tagName === 'DETAILS') current.open = true;
+    }
+  }
+  window.addEventListener('hashchange', openLinkedDetails);
+  openLinkedDetails();
+  var printAppendices = ['build', 'tested'].map(function (id) { return document.getElementById(id); }).filter(Boolean);
+  var printState = [];
+  window.addEventListener('beforeprint', function () {
+    printState = printAppendices.map(function (details) { return details.open; });
+    printAppendices.forEach(function (details) { details.open = true; });
+  });
+  window.addEventListener('afterprint', function () {
+    printAppendices.forEach(function (details, i) { details.open = Boolean(printState[i]); });
+  });
+  render(false);
+})();
+</script>
+<script id="video-experience-script">
+(function () {
+  document.querySelectorAll('[data-video-chapter]').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var video = document.getElementById(button.getAttribute('data-video-chapter'));
+      var seconds = Number(button.getAttribute('data-start'));
+      if (!video || !Number.isFinite(seconds) || seconds < 0 || seconds >= Number(video.getAttribute('data-duration'))) return;
+      video.pause();
+      video.currentTime = seconds;
+      video.focus();
+    });
+  });
+})();
+</script>
+</body>
+</html>

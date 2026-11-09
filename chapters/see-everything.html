@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Follow work from document to decision | Ingram Micro · iMBrace demos</title>
+<meta name="description" content="Find the work queue, document record or workflow step that answers your team’s next question.">
+<link rel="icon" href="../brand/ingram-micro-logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../brand/brand.css">
+<link rel="stylesheet" href="../site.css">
+<style>
+/* Chapter-only refinements; the shared site and case pages keep their styles. */
+@media screen {
+  .chapter-v3 .table td[data-label]::before { color: var(--fd-secondary); }
+}
+@media print {
+  .chapter-v3 { font-size: 14px; }
+  .presentation-v2.front-doors-v2.chapter-v3 .fd-hero { padding: 24px 0; }
+  .presentation-v2.front-doors-v2.chapter-v3 .fd-section { margin-top: 24px; padding: 16px 0; }
+  .presentation-v2.front-doors-v2.chapter-v3 .sec { padding-top: 24px; }
+  .chapter-v3 h2, .chapter-v3 h3, .chapter-v3 h4, .chapter-v3 .eyebrow,
+  .chapter-v3 summary, .chapter-v3 .screen > .meta { break-after: avoid; }
+  .chapter-v3 h1, .chapter-v3 h2, .chapter-v3 h3, .chapter-v3 h4 { break-inside: avoid; }
+  .chapter-v3 .route-card, .chapter-v3 .route-rail li, .chapter-v3 .findings li,
+  .chapter-v3 .untested > div, .chapter-v3 tr, .chapter-v3 figure,
+  .chapter-v3 .prose li, .chapter-v3 .panel li, .chapter-v3 .limit-list li,
+  .chapter-v3 .counts { break-inside: avoid; }
+  .chapter-v3 .detail-body h3 { margin: 16px 0 8px; }
+  .chapter-v3 .foot { margin-top: 8px; padding-top: 8px; padding-bottom: 0; border: 0; font-size: 12px; line-height: 1.4; break-inside: avoid; }
+  .chapter-v3 .chapter-return { display: none; }
+}
+</style>
+</head>
+<body class="presentation-v2 front-doors-v2 see-everything-v2 partner-rewrite-v3 chapter-v3">
+<a class="skip" href="#main">Skip to content</a>
+<div class="shell">
+  <header class="head">
+    <a class="logo-plate" href="../index.html" aria-label="Ingram Micro iMBrace demo study home">
+      <img class="wordmark" src="../brand/ingram-micro-logo.svg" alt="Ingram Micro" width="192" height="35">
+    </a>
+    <p class="eyebrow">iMBrace for partners</p>
+  </header>
+  <nav class="side" aria-label="Site">
+    <div class="side-in">
+      <div class="group">
+        <p class="group-name">Partner demos</p>
+        <ul>
+          <li><a href="../index.html">Overview</a></li>
+          <li><a href="../index.html#cases">The cases</a></li>
+          <li class="sub"><a href="../index.html#km">Knowledge Management</a></li>
+          <li class="sub"><a href="../index.html#ce">Customer Engagement</a></li>
+          <li class="sub"><a href="../index.html#ca">Conversational Analytics</a></li>
+          <li class="sub"><a href="../index.html#pa">Process Automation</a></li>
+          <li class="sub"><a href="../index.html#cg">Content Generation</a></li>
+        </ul>
+      </div>
+      <div class="group">
+        <p class="group-name">Chapters</p>
+        <ul>
+          <li><a href="front-doors.html">How iMBrace reaches users</a></li>
+          <li><a href="see-everything.html" aria-current="page">See everything in one place</a></li>
+          <li><a href="findings.html">Findings</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" class="main">
+    <section class="fd-hero" aria-labelledby="claim">
+      <img class="letterform" src="../brand/ingram-letterform.svg" alt="" aria-hidden="true">
+      <div class="fd-wrap">
+        <p class="eyebrow">Chapter · Operating view</p>
+        <h1 id="claim" tabindex="-1">Follow the work from document to decision.</h1>
+        <p class="fd-lead">FlowOps shows workflow steps. DataIQ, iMBrace’s records boards, shows the work queue. DocIQ shows document processing. Choose the screen that answers your team’s question.</p>
+        <p class="fd-audience"><b>For:</b> process owners, service managers, knowledge owners and AI operations teams.</p>
+
+      </div>
+    </section>
+
+    <section class="sec" id="map" aria-labelledby="map-h">
+      <div class="wrap">
+        <p class="eyebrow">Choose the view</p>
+        <h2 id="map-h">Match the question to the screen.</h2>
+        <table class="table">
+          <thead><tr><th scope="col">Your question</th><th scope="col">Open this screen</th><th scope="col">Useful for</th><th scope="col">Watch an example</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Your question">Which steps did the workflow take?</td><td data-label="Open this screen">FlowOps &gt; Runs: the step sequence and a paused or resumed workflow</td><td data-label="Useful for">Process teams and builders</td><td data-label="Watch an example"><a href="../cases/cg2/index.html">Draft an HR reply</a></td></tr>
+            <tr><td data-label="Your question">What needs the team's attention?</td><td data-label="Open this screen">DataIQ boards: queues, decisions and results as records</td><td data-label="Useful for">Business teams and managers</td><td data-label="Watch an example"><a href="../cases/pa1/index.html">Check incoming invoices</a></td></tr>
+            <tr><td data-label="Your question">Where did this document go?</td><td data-label="Open this screen">DocIQ &gt; Processing Logs: the file, document model and destination board</td><td data-label="Useful for">Document operations</td><td data-label="Watch an example"><a href="../cases/pa1/index.html">Follow a document into a record</a></td></tr>
+            <tr><td data-label="Your question">How did the assistant answer?</td><td data-label="Open this screen">InsightsIQ: the chat, skill cards and chart panel</td><td data-label="Useful for">People asking questions and their managers</td><td data-label="Watch an example"><a href="../cases/ca3/index.html">Ask about sales and margin</a></td></tr>
+            <tr><td data-label="Your question">Which sources can the assistant use?</td><td data-label="Open this screen">Knowledge: the document library and its tags</td><td data-label="Useful for">HR and IT knowledge teams</td><td data-label="Watch an example"><a href="../cases/km3/index.html">Find a version-specific fix</a></td></tr>
+            <tr><td data-label="Your question">Which chat did this visitor use?</td><td data-label="Open this screen">Contacts: the visitor record linked to web chat</td><td data-label="Useful for">Customer-care teams</td><td data-label="Watch an example"><a href="../cases/ce1/index.html">Answer a customer in chat</a></td></tr>
+          </tbody>
+        </table>
+        <p>The examples use fictional companies, customers and documents.</p>
+      </div>
+    </section>
+
+    <section class="fd-section" aria-labelledby="work-h">
+      <div class="fd-wrap"><p class="eyebrow">Follow the work</p><h2 id="work-h">Open the record behind the result.</h2>
+        <div class="shots fd-shots">
+          <figure class="shot"><a class="img" href="../cases/pa1/img/03-03-processing-log.png"><img src="../cases/pa1/img/03-03-processing-log.png" alt="The document processing log lists the fictional documents and their destination boards." loading="lazy"></a><figcaption><b>Start with the document.</b> The log connects each demo file to its document model and destination board.</figcaption></figure>
+          <figure class="shot"><a class="img" href="../cases/pa1/img/07-07-worklist.png"><img src="../cases/pa1/img/07-07-worklist.png" alt="The demo invoice worklist shows items waiting for attention, each with a reason." loading="lazy"></a><figcaption><b>See what needs attention.</b> The demo invoice queue gives each exception a reason the team can act on.</figcaption></figure>
+          <figure class="shot"><a class="img" href="../cases/cg2/img/06-06-watch-hold-resumed.png"><img src="../cases/cg2/img/06-06-watch-hold-resumed.png" alt="The demo HR workflow continues after its approval step." loading="lazy"></a><figcaption><b>Follow the decision.</b> The HR workflow continues after an approval entered by the automated demo operator.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="fd-section fd-next" aria-labelledby="next-h">
+      <div class="fd-wrap next-grid">
+        <div><p class="eyebrow">Next action</p><h2 id="next-h">Start with the team’s work queue.</h2><p>Choose a task on the board, then open the document record or workflow steps behind it. Watch the operations review to see the screens in use.</p></div>
+        <a class="fd-button" href="../cases/ca4/index.html">See the AI operations review</a>
+      </div>
+    </section>
+
+    <section class="fd-section fd-details" id="screens" aria-labelledby="screens-h">
+      <div class="fd-wrap">
+        <p class="eyebrow">Supporting detail</p>
+        <h2 id="screens-h">Explore the operating screens</h2>
+        
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p><b>Ingram Micro</b> · Built on iMBrace</p>
+    <p>Every demo uses fictional companies and data. Customer and approver actions are played by the automated demo operator.</p>
+  </footer>
+</div>
+<script>
+(function () {
+  var appendices = Array.from(document.querySelectorAll('details'));
+  var printState = [];
+  function openLinkedDetail() {
+    var id;
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch (_) { return; }
+    var target = document.getElementById(id);
+    if (!target) return;
+    for (var node = target; node; node = node.parentElement) {
+      if (node.tagName === 'DETAILS') node.open = true;
+    }
+    requestAnimationFrame(function () { target.scrollIntoView({block: 'start'}); });
+  }
+  window.addEventListener('hashchange', openLinkedDetail);
+  openLinkedDetail();
+  window.addEventListener('beforeprint', function () {
+    printState = appendices.map(function (details) { return details.open; });
+    appendices.forEach(function (details) { details.open = true; });
+  });
+  window.addEventListener('afterprint', function () {
+    appendices.forEach(function (details, i) { details.open = Boolean(printState[i]); });
+  });
+}());
+</script>
+</body>
+</html>

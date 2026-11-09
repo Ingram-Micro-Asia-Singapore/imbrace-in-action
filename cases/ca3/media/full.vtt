@@ -1,0 +1,61 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:23.840
+Choose the sales analyst to explore the fictional company's figures.
+
+2
+00:00:23.840 --> 00:00:57.080
+Ask for regional revenue as a chart.
+
+3
+00:00:57.080 --> 00:01:02.400
+The chart shows each region and repeats its total in text.
+
+4
+00:01:02.440 --> 00:01:26.440
+Follow up with a question about East's gross margin.
+
+5
+00:01:26.440 --> 00:01:33.000
+East's margin appears with revenue and the monthly working.
+
+6
+00:01:33.040 --> 00:02:05.240
+Ask where to find the next quarter's forecast.
+
+7
+00:02:05.280 --> 00:02:11.500
+The analyst points the forecast question to the finance planning team.
+
+8
+00:02:11.500 --> 00:02:45.140
+Open the workflow behind the sales answer.
+
+9
+00:02:45.140 --> 00:02:53.580
+The workflow reads the records, checks the rows and calculates totals.
+
+10
+00:02:55.500 --> 00:03:10.260
+The records board holds the fictional company's quarterly sales figures.
+
+11
+00:03:10.300 --> 00:03:32.860
+An automated test changes one revenue cell to demonstrate a data warning.
+
+12
+00:03:33.660 --> 00:04:00.340
+Ask the same margin question in a fresh chat.
+
+13
+00:04:00.380 --> 00:04:30.620
+The analyst reads the updated figures before answering.
+
+14
+00:04:30.620 --> 00:04:39.780
+The answer identifies the row to correct and marks its total incomplete.
+
+15
+00:04:40.700 --> 00:05:06.000
+Open the analyst settings to review its link to the sales workflow.

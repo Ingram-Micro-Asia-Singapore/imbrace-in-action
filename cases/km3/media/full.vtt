@@ -1,0 +1,45 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:21.120
+Two synthetic runbooks cover the same VPN error on different product versions.
+
+2
+00:00:21.120 --> 00:00:45.440
+Ask the assistant about the fictional company's VPN ticket.
+
+3
+00:00:45.440 --> 00:00:53.640
+The assistant selects the ticket's version-specific runbook and cites its source.
+
+4
+00:00:53.640 --> 00:01:19.680
+Ask to add the sourced steps as a suggested work note.
+
+5
+00:01:19.680 --> 00:01:22.720
+Open the demo ticket to review its suggested fix.
+
+6
+00:01:22.800 --> 00:01:31.980
+Open the note to review the sourced steps and their suggested status.
+
+7
+00:01:31.980 --> 00:02:16.300
+Ask about the same VPN error on the other product version.
+
+8
+00:02:16.300 --> 00:02:22.720
+The assistant selects that version's runbook and cites its source.
+
+9
+00:02:22.720 --> 00:03:07.800
+Ask about a synthetic ticket that needs another runbook.
+
+10
+00:03:07.840 --> 00:03:14.720
+The uncovered ticket becomes a counted follow-up for the knowledge team.
+
+11
+00:03:14.720 --> 00:03:22.920
+Open the knowledge-team board to review the follow-up record.

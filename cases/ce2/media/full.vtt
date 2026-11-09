@@ -1,0 +1,61 @@
+WEBVTT
+
+1
+00:00:34.240 --> 00:00:43.040
+The fictional service case keeps the customer request in view.
+
+2
+00:00:43.040 --> 00:00:59.040
+An automated test asks the copilot for a policy-cited draft.
+
+3
+00:00:59.040 --> 00:01:37.880
+The selected case reference gives the draft its context.
+
+4
+00:01:37.880 --> 00:01:47.880
+The draft cites policy and flags the refund for supervisor review.
+
+5
+00:01:47.880 --> 00:01:55.640
+The save skill checks the draft against the recorded team rules.
+
+6
+00:01:55.640 --> 00:02:09.000
+The case keeps the draft ready for review.
+
+7
+00:02:09.000 --> 00:02:15.600
+The workflow stamps the record: AI draft, not sent.
+
+8
+00:02:15.600 --> 00:02:20.880
+The supervisor-review flag helps reviewers find the case.
+
+9
+00:02:41.700 --> 00:02:47.740
+Reopen the fictional service case to review its reply.
+
+10
+00:02:47.740 --> 00:02:52.780
+Edit mode opens the reply and review fields.
+
+11
+00:02:52.780 --> 00:02:59.780
+An automated test types a reply with unsupported refund and compensation promises.
+
+12
+00:02:59.780 --> 00:03:06.220
+Marking Ready to send starts the advisory review on save.
+
+13
+00:03:06.220 --> 00:03:16.500
+Saving the reply starts its advisory policy check.
+
+14
+00:03:16.500 --> 00:03:33.300
+The workflow checks recorded phrases and amounts against the team rules.
+
+15
+00:03:33.300 --> 00:03:42.980
+The advisory check lists five policy problems for the reviewer.

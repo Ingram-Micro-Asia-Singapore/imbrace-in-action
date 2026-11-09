@@ -1,0 +1,29 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:10.500
+Ask the assistant about the fictional company's VPN ticket.
+
+2
+00:00:10.500 --> 00:00:18.460
+The assistant selects the ticket's version-specific runbook and cites its source.
+
+3
+00:00:18.460 --> 00:00:32.000
+Ask to add the sourced steps as a suggested work note.
+
+4
+00:00:32.000 --> 00:00:40.300
+Open the note to review the sourced steps and their suggested status.
+
+5
+00:00:40.300 --> 00:00:46.200
+The assistant selects that version's runbook and cites its source.
+
+6
+00:00:46.200 --> 00:00:53.080
+The uncovered ticket becomes a counted follow-up for the knowledge team.
+
+7
+00:00:53.080 --> 00:00:58.280
+Open the knowledge-team board to review the follow-up record.

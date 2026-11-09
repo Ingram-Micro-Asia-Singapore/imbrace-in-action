@@ -1,0 +1,53 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:21.720
+Typed by Claude (automated test) as the customer: asks about returns.
+
+2
+00:00:21.760 --> 00:00:53.240
+The answer cites the fictional retailer's current return policy sections.
+
+3
+00:00:53.240 --> 00:01:16.120
+Typed by Claude (automated test) as the customer: provides the order details.
+
+4
+00:01:16.200 --> 00:01:49.440
+Matching details return the status from the demo orders board.
+
+5
+00:01:49.480 --> 00:01:55.520
+A different order number with the same email receives a no-match reply.
+
+6
+00:01:55.520 --> 00:02:10.800
+Typed by Claude (automated test) as the customer: asks about spare batteries.
+
+7
+00:02:10.840 --> 00:02:42.920
+The assistant gives the published care route for this question.
+
+8
+00:02:42.920 --> 00:03:22.720
+Payment guidance appears; test input still reaches the model and chat history.
+
+9
+00:03:22.720 --> 00:03:46.160
+DataIQ, iMBrace's records workspace, holds the fictional retailer's current help sections.
+
+10
+00:03:46.160 --> 00:04:01.920
+AgentIQ, iMBrace's assistant workspace, shows the selected assistant and model.
+
+11
+00:04:01.920 --> 00:04:34.720
+Two read-only workflows connect the assistant to help sections and demo orders.
+
+12
+00:04:34.720 --> 00:04:52.160
+ConnectIQ, iMBrace's channel workspace, lists the hosted web-chat widget.
+
+13
+00:04:52.160 --> 00:05:00.560
+Review the widget's greeting and appearance settings for the customer-care journey.

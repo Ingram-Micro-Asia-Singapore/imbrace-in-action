@@ -1,0 +1,101 @@
+WEBVTT
+
+1
+00:00:13.240 --> 00:00:17.600
+DataIQ, iMBrace's records workspace, opens the board-creation form.
+
+2
+00:00:17.600 --> 00:00:25.840
+Review the board name in this rehearsal of the existing build.
+
+3
+00:00:42.600 --> 00:00:48.960
+Review the help-board fields and their text types.
+
+4
+00:00:48.960 --> 00:00:56.720
+Open the field form to review the field settings.
+
+5
+00:01:13.560 --> 00:01:25.080
+Review the CSV import route for the fictional help articles.
+
+6
+00:01:25.080 --> 00:01:29.880
+The board holds the fictional retailer's current help sections.
+
+7
+00:01:50.040 --> 00:01:57.560
+Open FlowOps, iMBrace's workflow builder, to review the skill import route.
+
+8
+00:01:57.600 --> 00:02:12.280
+Select the help-lookup file named in the build instructions.
+
+9
+00:02:12.280 --> 00:02:17.240
+This UI import requires a FlowOps template; the MCP-format file is rejected.
+
+10
+00:02:17.280 --> 00:02:28.040
+Select the FlowOps template, then cancel this rehearsal of the existing skill.
+
+11
+00:02:28.800 --> 00:02:35.320
+Retained build screenshot: select the records board and its output data.
+
+12
+00:02:36.080 --> 00:02:42.000
+Retained build screenshot: review the skill description and input parameters.
+
+13
+00:02:42.000 --> 00:02:45.160
+Retained build screenshot: review the skill description and input parameters.
+
+14
+00:03:02.960 --> 00:03:19.040
+Open AgentIQ, iMBrace's assistant workspace, and choose the General Agent form.
+
+15
+00:03:19.080 --> 00:03:28.320
+Review the assistant name and selected model in the form.
+
+16
+00:03:28.360 --> 00:03:34.520
+Enter the customer-care rules and name the two intended skills.
+
+17
+00:03:34.560 --> 00:03:56.880
+Select the help-article and order-lookup workflows for the assistant.
+
+18
+00:03:56.920 --> 00:04:04.600
+Review the existing assistant settings in this rehearsal.
+
+19
+00:04:04.640 --> 00:04:09.600
+Leave the creation form after reviewing the existing assistant's configuration.
+
+20
+00:04:26.320 --> 00:04:42.040
+Select the existing assistant built through the UI route.
+
+21
+00:04:42.080 --> 00:04:49.120
+Open the assistant's Preview and Test chat.
+
+22
+00:04:49.160 --> 00:05:04.440
+Typed by Claude (automated test) as the customer: asks about returns.
+
+23
+00:05:04.480 --> 00:05:13.600
+The answer cites the fictional retailer's current help sections.
+
+24
+00:05:14.400 --> 00:05:22.440
+Retained build screenshot: the chat-workflow model pin uses the labelled API exception.
+
+25
+00:05:23.160 --> 00:05:30.100
+Retained build screenshot: review the web-widget settings for the hosted chat.
