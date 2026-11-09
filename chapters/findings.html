@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>What to plan for in a pilot | Ingram Micro · iMBrace demos</title>
-<meta name="description" content="See where the iMBrace demos are strongest, which rollout controls still need proof and what to test first in a pilot.">
+<title>What held up across the cases | Ingram Micro · iMBrace demos</title>
+<meta name="description" content="See where the iMBrace demos are strongest, which rollout controls still need proof and what to test first with real data.">
 <link rel="icon" href="../brand/ingram-micro-logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../brand/brand.css">
 <link rel="stylesheet" href="../site.css">
@@ -30,6 +30,7 @@
   .chapter-v3 .chapter-return { display: none; }
 }
 </style>
+<link rel="stylesheet" href="../public.css">
 </head>
 <body class="presentation-v2 front-doors-v2 findings-v2 partner-rewrite-v3 chapter-v3">
 <a class="skip" href="#main">Skip to content</a>
@@ -73,10 +74,10 @@
       <img class="letterform" src="../brand/ingram-letterform.svg" alt="" aria-hidden="true">
       <div class="fd-wrap">
         <p class="eyebrow">Chapter · Findings</p>
-        <h1 id="claim" tabindex="-1">What to plan for in a pilot.</h1>
-        <p class="fd-lead">The demos show useful workflows for documents, answers and decisions. A pilot tests them with your customer’s documents, people, connections and operating controls.</p>
-        <p class="fd-audience"><b>For:</b> partners shaping a first pilot and customers deciding what evidence they still need.</p>
-        <p class="fd-audience">Start with one workflow and agree what success will look like. Use the findings below to shape the pilot and its safeguards.</p>
+        <h1 id="claim" tabindex="-1">What held up across the cases.</h1>
+        <p class="fd-lead">The demos show useful workflows for documents, answers and decisions. A real deployment tests them with a customer’s own documents, people, connections and operating controls.</p>
+        <p class="fd-audience"><b>For:</b> partners and customers deciding what evidence they still need.</p>
+        <p class="fd-audience">The findings below show what held up across the cases and what to settle before using real data.</p>
       </div>
     </section>
 
@@ -85,12 +86,12 @@
         <p class="eyebrow">The pattern that held up</p>
         <h2 id="story-h">Keep language, rules and decisions separate.</h2>
         <div class="prose">
-          <p>Ingram Micro and its partners want AI that does real work in five areas: knowledge, customer engagement, analytics, document processing and content. iMBrace's pitch is one platform where messages, documents, data, decisions and actions meet. We found that each link in that chain works on its own (a web chat reaches an agent, a document becomes a record, a record feeds an answer, a flow waits for a decision), while the operating view is spread across several screens. Agree how the pilot team will join those records when it investigates a task.</p>
+          <p>Ingram Micro and its partners want AI that does real work in five areas: knowledge, customer engagement, analytics, document processing and content. iMBrace's pitch is one platform where messages, documents, data, decisions and actions meet. We found that each link in that chain works on its own (a web chat reaches an agent, a document becomes a record, a record feeds an answer, a flow waits for a decision), while the operating view is spread across several screens. Agree how a team will join those records when it investigates a task.</p>
           <p>Most of the finished cases share one shape:</p>
           <ul>
             <li><b>The AI handles the language.</b> It finds the clause, drafts the reply, writes the copy, words the alert.</li>
             <li><b>Fixed steps do the sums and enforce the rules.</b> FlowOps code steps add up the totals, check every figure the AI writes, match an order number with its email, and compare the output with rules kept as records on a board. These are labelled "Built on iMBrace with FlowOps".</li>
-            <li><b>The workflow holds for a decision.</b> An approval step was exercised by the automated demo operator. The custom workflow records the exact version approved; a pilot must add and test distinct approver identities.</li>
+            <li><b>The workflow holds for a decision.</b> An approval step was exercised by the automated demo operator. The custom workflow records the exact version approved; a real deployment must add and test distinct approver identities.</li>
             <li><b>The team can inspect the work</b> in FlowOps Runs, DataIQ records boards and DocIQ document logs (<a href="see-everything.html">See everything in one place</a>).</li>
           </ul>
         </div>
@@ -122,27 +123,22 @@
             <p class="small">Each was shown on synthetic data. First agree access and data controls, then test representative customer documents: KM-3's runbooks, for example, had to be re-laid out one step per line before iMBrace's ingestion read them reliably.</p>
           </div>
           <div class="panel">
-            <h3>What a pilot needs to settle first</h3>
+            <h3>What to settle before using real data</h3>
             <ul>
-              <li><b>Native safeguards.</b> No guardrail provider was provisioned, including after the account became Admin. Custom FlowOps phrase and version checks are separate from native guardrails. Ask iMBrace which supported components the pilot will use and test the actual policy behaviour; the guardrail case remains dropped.</li>
-              <li><b>Separate roles.</b> One login played every role, and the account belonged to no team. Use distinct pilot accounts to test correction, approval, team inbox access and answers by audience.</li>
+              <li><b>Native safeguards.</b> No guardrail provider was provisioned, including after the account became Admin. Custom FlowOps phrase and version checks are separate from native guardrails. Ask iMBrace which supported components a deployment will use and test the actual policy behaviour; the guardrail case remains dropped.</li>
+              <li><b>Separate roles.</b> One login played every role, and the account belonged to no team. Use distinct accounts to test correction, approval, team inbox access and answers by audience.</li>
               <li><b>Data location.</b> The demonstrated model route used AWS US West (Oregon). The platform and log locations were not verified. Obtain a data-flow and hosting map for the customer's data-protection review before using confidential data.</li>
               <li><b>Cost and tracing.</b> Token Usage omitted most case assistants and DocIQ reads; partial AI traces do not follow every step. Zero usage is not zero cost. Agree metering, billing reconciliation and a way to correlate records across screens.</li>
               <li><b>Real connections.</b> ERP and CRM write-back were not tested. A later demo mailbox connection was read-only, and an approved reply path was not demonstrated. The observed FlowOps library included NetSuite, Salesforce, ServiceNow and Dynamics pieces, but none for SAP. Verify the customer's actual connector and sandbox delivery path; a catalogue entry alone is not an integration.</li>
               <li><b>Representative documents and volume.</b> Most cases used small scripted cohorts; PA-1 also retained a 200-invoice run. Answers took about 5 seconds to just over a minute. These observations do not establish production accuracy, concurrency or scale. Agree a document set, baseline, accuracy target and load test.</li>
-              <li><b>Security.</b> Agree a security review with iMBrace before the pilot handles real customer or employee data.</li>
+              <li><b>Security.</b> Agree a security review with iMBrace before real customer or employee data is used.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="fd-section fd-next" aria-labelledby="next-h">
-      <div class="fd-wrap next-grid">
-        <div><p class="eyebrow">Next action</p><h2 id="next-h">Bring one workflow and its operating questions.</h2><p>Choose a case, then discuss volume, exceptions, connections and the buyer’s decision with Ingram Micro. Agree a baseline and the evidence the customer will need before expanding the pilot.</p></div>
-        <a class="fd-button" href="../index.html#cases">Compare all cases</a>
-      </div>
-    </section>
+    
 
     <section class="fd-section fd-details" id="benefits" aria-labelledby="benefits-h">
       <div class="fd-wrap">
